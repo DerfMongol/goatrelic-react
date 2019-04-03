@@ -1,0 +1,58 @@
+.list {
+    display: grid;
+    grid-template-areas: 
+        'head head'
+        'menu statsHead'
+        'menu stats'
+        'foot foot';
+    grid-template-columns: 7.5rem 3fr;
+}
+
+.stat-head {
+    grid-area: head;
+    // font-family: Vidaloka, serif;
+    background: rgba(202, 138, 0, 0.9);
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: auto;
+    margin-top: 2rem;
+    width: 100%;
+    padding: none;
+    border: .0625rem black solid;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.sub-menu {
+    grid-area: menu; 
+    margin: auto;
+    width: 100%;
+    flex-direction: column;
+    height: 20.7rem;
+    align-items: center;
+    background: rgb(206, 173, 102);
+    border-left: .0625rem black solid;
+    border-right: .0625rem black solid;
+}
+
+.all-time {
+    grid-area: stats;
+    width: 100%;
+    min-width: 15.6rem;
+    overflow: auto;
+    height: 20.7rem;
+    background: $cum-white;
+    font-size: 0.8rem;
+    border-left: .0625rem black solid;
+    border-right: .0625rem black solid;
+}
+
+.total-foot {
+    grid-area: foot;
+    font-weight: lighter;
+    border-radius: 0 0 1rem 1rem;
+    font-size: 1.2rem;
+    background: rgba(202, 138, 0, 0.9);
+    margin: auto;
+    width: 100%;
+    border: .0625rem black solid;
+}

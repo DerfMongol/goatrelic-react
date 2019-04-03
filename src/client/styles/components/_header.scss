@@ -1,0 +1,83 @@
+.link {
+    display: none;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Titan One', cursive;
+    border-bottom: solid gold 3px;
+    position: fixed;
+    z-index: 10;
+    background: white;
+    top: 0;
+}
+
+.toggle-button {
+    margin-left: 1.25rem;
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
+
+.toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: black;
+    display: block;
+    margin: 0.6rem 0;
+}
+
+.logo {
+    display: none;
+    order: 2;
+}
+
+.brand {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.logo, .logo a, .goat {
+    align-items: center;
+}
+
+.goat {
+    margin-right: 1.25rem;
+    background: url("/images/Black_Goat.png");
+    width: 3.125rem;
+    height: 3.123rem;
+    background-size: contain;
+    justify-self: flex-end;
+    order: 3;
+}
+
+@media (min-width: 40rem) {
+    .toggle-button {
+        display: none;
+    }
+    .goat {
+        margin: 0 0 0 1.25rem;
+        justify-self: flex-start;
+        order: 2;
+        padding: 0;
+    }
+    .header {
+        justify-content: flex-start;
+    }
+    .logo {
+        display: inline;
+        order: 3;
+    }
+}
