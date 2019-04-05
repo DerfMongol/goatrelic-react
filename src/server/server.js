@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+var cors = require('cors')
 
 const pga = require('./routes/api/pga')
 const nba = require('./routes/api/nba')
@@ -10,6 +11,7 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+app.use(cors());
 
 const port = 4000
 

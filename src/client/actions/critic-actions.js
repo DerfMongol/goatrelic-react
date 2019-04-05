@@ -2,8 +2,10 @@ import axios from 'axios'
 
 import { GET_NBA, GET_NHL, GET_PGA } from './types'
 
+const apiURL = 'http://localhost:4000/api'
+
 export const getNba = () => dispatch => {
-    axios.get('/api/nba')
+    axios.get(`${apiURL}/nba`)
         .then(res => dispatch({ type: GET_NBA, payload: res.data}))
         .catch(err => dispatch({type: GET_NBA, payload: {}}))
 }
@@ -19,3 +21,5 @@ export const getPga = () => dispatch => {
         .then(res => dispatch({ type: GET_PGA, payload: res.data}))
         .catch(err => dispatch({type: GET_PGA, payload: {}}))
 }
+
+//`${apiURL}/nhl`
