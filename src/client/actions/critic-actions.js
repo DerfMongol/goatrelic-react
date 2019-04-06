@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { GET_NBA, GET_NHL, GET_PGA } from './types'
 
-const apiURL = 'http://localhost:4000/api'
+const apiURL = 'http://localhost:4000/api/critics'
 
 export const getNba = () => dispatch => {
     axios.get(`${apiURL}/nba`)

@@ -2,8 +2,8 @@
     display: grid;
     grid-template-areas: 
         'head head'
-        'menu statsHead'
-        'menu stats'
+        'statsHead statsHead'
+        'stats stats'
         'foot foot';
     grid-template-columns: 7.5rem 3fr;
 }
@@ -22,17 +22,29 @@
     border-radius: 1rem 1rem 0 0;
 }
 
-.sub-menu {
-    grid-area: menu; 
-    margin: auto;
+.cats-banner {
+    grid-area: statsHead;
+    position: sticky;
+    top: 0;
+    height: 25px;
     width: 100%;
-    flex-direction: column;
-    height: 20.7rem;
-    align-items: center;
-    background: rgb(206, 173, 102);
-    border-left: .0625rem black solid;
-    border-right: .0625rem black solid;
+    // border-left: .0625rem black solid;
+    // border-right: .0625rem black solid;
+    background:rgb(139, 134, 125);
+    margin: -30px 0 0 0;
 }
+
+// .sub-menu {
+//     grid-area: menu; 
+//     margin: auto;
+//     width: 100%;
+//     flex-direction: column;
+//     height: 20.7rem;
+//     align-items: center;
+//     background: rgb(206, 173, 102);
+//     border-left: .0625rem black solid;
+//     border-right: .0625rem black solid;
+// }
 
 .all-time {
     grid-area: stats;

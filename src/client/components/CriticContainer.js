@@ -20,7 +20,7 @@ class CriticContainer extends React.Component {
     // }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/api/nba')
+        axios.get('http://localhost:4000/api/critics/nba')
             .then((res) => {
                 this.setState({
                     nba: res.data
