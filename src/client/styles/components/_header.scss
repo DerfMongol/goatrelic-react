@@ -6,7 +6,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-family: 'Titan One', cursive;
     border-bottom: solid gold 3px;
     position: fixed;
     z-index: 10;
@@ -59,8 +58,37 @@
     width: 3.125rem;
     height: 3.123rem;
     background-size: contain;
-    justify-self: flex-end;
+    justify-self: flex-start;
     order: 3;
+}
+
+.main {
+    display: none;
+}
+
+
+.main-item {
+    display: none;
+    /* margin: 0 0.375rem; */
+}
+
+.main-item a, .dropbtn{
+    color: black;
+    text-decoration: none;
+    padding: .1875rem .1875rem;
+}
+
+.main-item a:hover,
+.main-item a:active {
+    color: gold;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    /* border-radius: 10%; */
+}
+
+
+li.dropdown {
+    display: inline-block;
 }
 
 @media (min-width: 40rem) {
@@ -80,4 +108,28 @@
         display: inline;
         order: 3;
     }
+
+    .main-item {
+        display: inline-block;
+        padding-right: 3%;
+    }
+
+    .main {
+        display: inline;
+        text-align: right;
+        width: 70%;
+        vertical-align: middle;
+        order: 4;
+    }
+
+    .main-items {
+        list-style: none;
+        text-align: right;
+        
+    }
+}
+
+@media (min-width: 770px) {
+    
+    
 }
