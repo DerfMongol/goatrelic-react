@@ -9,9 +9,10 @@ const options = {
 
 const AllTimeConn = mongoose.createConnection(uri, options)
 
-const nbaSchema = new Schema({ url: String, text: String, id: Number}, { collection: 'nba'})
-const nhlSchema = new Schema({ url: String, text: String, id: Number}, { collection: 'nhl'})
-const pgaSchema = new Schema({ url: String, text: String, id: Number}, { collection: 'pga'})
+const nbaSchema = new Schema({id: Number, player: String, rank: Number, lists: Number, avg: String}, { collection: 'nba'})
+const nhlSchema = new Schema({id: Number, player: String, rank: Number, lists: Number, avg: String}, { collection: 'nhl'})
+const pgaSchema = new Schema({id: Number, player: String, rank: Number, lists: Number, avg: String}, { collection: 'pga'})
+
 
 module.exports = {
     Pga: AllTimeConn.model('pga', pgaSchema),

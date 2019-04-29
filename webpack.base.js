@@ -1,14 +1,8 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/client/app.js',
-    devtool: 'source-map',
-    output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js',
-        sourceMapFilename: 'bundle.js.map'
-    },
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -24,18 +18,25 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/
         }, {
-            test: /\.s?css$/,
+            test: /\.s?[ac]ss$/,
             use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
+                MiniCssExtractPlugin.loader,
+                { loader: 'css-loader', options: { url: false, sourceMap: true } },
+                { loader: 'sass-loader', options: { sourceMap: true } }
+            ],
         }]
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "style.css"
+        })
+
+    ],
     devServer: {
         contentBase: path.join(__dirname, 'public'),
+        // historyApiFallback: true,
+        // hot: true,
         host: 'localhost',
         port: 3000
     }
-
 }

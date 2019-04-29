@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Header = (props) => (
+const Header = () => (
 
     <header className='header'>
         <button className='toggle-button'>

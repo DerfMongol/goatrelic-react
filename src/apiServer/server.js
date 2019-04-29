@@ -1,7 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
-var cors = require('cors')
+const cors = require('cors')
+const path = require('path')
+
 
 const critic = require('./routes/api/critics')
 // const criticNba = require('./routes/api/critics')
@@ -11,9 +13,11 @@ const allTime = require('./routes/api/allTime')
 // const allTimeNba = require('./routes/api/allTime')
 // const allTimeNhl = require('./routes/api/allTime')
 
+const reactRouter = require('./routes/reactRouter')
+
 const app = express()
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors());
 
@@ -26,6 +30,7 @@ const port = 4000
 // }
 
 // mongoose.connect(uri, options)
+
 
 app.use('/api/critics', critic)
 // app.use('/api/critics/nba', criticNba)
@@ -41,6 +46,7 @@ app.use('/api/critics', critic)
 app.use('/api/allTime', allTime)
 // app.use('/api/allTime/nba', allTimeNba)
 // app.use('/api/allTime/nhl', allTimeNhl)
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 // const client = new MongoClient(uri, { useNewUrlParser: true })
@@ -94,13 +100,13 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 //         console.log(allTime)
 //         process.exit()
 //     })
-    
+
 //     // collection.countDocuments({players: 'Harry Vardon'})
 //     // .then(res => {
 //     //     console.log(res)
 //     // })
 //     client.close()
-    
+
 // })
 
 

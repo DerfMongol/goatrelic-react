@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { connect } from 'react-redux'
 import PlayerListCat from './PlayerListCat'
 
 const PlayerList = (props) => (
