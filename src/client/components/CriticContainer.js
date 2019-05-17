@@ -29,19 +29,19 @@ const mapStateToProps = (state, props) => {
 
     if (props.match.path === '/nba') {
         return {
-            critics: state.critic.nba
+            critics: state.critics.nba
         }
     } else if (props.match.path === '/nhl') {
         return {
-            critics: state.critic.nhl
+            critics: state.critics.nhl
         }
     } else if (props.match.path === '/pga') {
         return {
-            critics: state.critic.pga
+            critics: state.critics.pga
         }
     } else {
         return {
-            critics: state.critic.nba
+            critics: state.critics.nba
         }
 
     }

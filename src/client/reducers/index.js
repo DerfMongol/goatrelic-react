@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
+
 import criticReducer from './criticReducer'
 import allTimeReducer from './allTimeReducer';
+import userReducer from './userReducer'
 
 export default combineReducers({
-    critic: criticReducer,
-    allTime: allTimeReducer
+    critics: criticReducer,
+    allTime: allTimeReducer,
+    user: userReducer
 })

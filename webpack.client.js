@@ -4,7 +4,7 @@ const baseConfig = require('./webpack.base')
 
 const config = {
    
-    entry: './src/client/app.js',
+    entry: './src/client/client.js',
     devtool: 'source-map',
     output: {
         path: path.join(__dirname, 'public'),

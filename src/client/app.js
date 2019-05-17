@@ -1,36 +1,38 @@
-// Startup point for the client side application
-import 'babel-polyfill'
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
 import { renderRoutes } from 'react-router-config'
-import Routes from './Routes'
-import reducers from './reducers'
 
-import 'normalize.css/normalize.css'
-import './styles/styles.scss'
+import Header from './components/Header'
+import { getNbaAllTime, getNhlAllTime, getPgaAllTime } from './actions/allTime-actions'
+import { getNbaCritic, getNhlCritic, getPgaCritic } from './actions/critic-actions'
 
-const store = createStore(
-    reducers,
-    window.INITIAL_STATE,
-    compose(
-        applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+const App = ({ route }) => (
+    <div>
+        <Header />
+        {renderRoutes(route.routes)}
+    </div>
 )
 
+const loadData = (store) => {
+    return Promise.all([
+        store.dispatch(getNbaAllTime()),
+        store.dispatch(getNbaCritic()),
 
-ReactDOM.hydrate(
-    <Provider store={store}>
-        <BrowserRouter>
-            <div>{renderRoutes(Routes)}</div>
-        </BrowserRouter>
-    </Provider>
-    , document.querySelector('#app')
-)
+        store.dispatch(getNhlAllTime()),
+        store.dispatch(getNhlCritic()),
+
+        store.dispatch(getPgaAllTime()),
+        store.dispatch(getPgaCritic()),
+
+        store.dispatch(getNbaAllTime()),
+        store.dispatch(getNbaCritic())
+
+    ])
+}
+
+export default {
+    loadData,
+    component: App
+}
 
 
 

@@ -32,15 +32,15 @@ const mapStateToProps = (state, props) => {
 
     if (props.match.path === '/nba') {
         return {
-            allTime: state.allTime.nba, 
+            allTime: state.allTime.nba
         }
     } else if (props.match.path === '/nhl') {
         return {
-            allTime: state.allTime.nhl, 
+            allTime: state.allTime.nhl
         }
     } else if (props.match.path === '/pga') {
         return {
-            allTime: state.allTime.pga, 
+            allTime: state.allTime.pga
         }
     } else {
         return {

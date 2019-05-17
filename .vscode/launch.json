@@ -9,16 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Client",
-            "program": "${workspaceFolder}/src/client/App.js"
-        },
-
-
-        
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Server",
-            "program": "${workspaceFolder}/src/server/server.js"
+            "program": "${workspaceFolder}/src/index.js"
         }
     ]
 }

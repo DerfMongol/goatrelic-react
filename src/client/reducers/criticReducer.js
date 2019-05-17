@@ -1,19 +1,19 @@
 import { GET_NBA_CRITIC, GET_NHL_CRITIC, GET_PGA_CRITIC } from '../actions/types'
 
 const initialState = {
-    nba: [],
+    nba: [], 
     nhl: [],
     pga: []
 }
 
-export default function (state = initialState, action) {
-    switch (action.type) {
-        case GET_NBA_CRITIC:
+export default function(state = initialState, action) {
+    switch(action.type) {
+        case GET_NBA_CRITIC: 
             return {
                 ...state,
                 nba: action.data
             }
-        case GET_NHL_CRITIC:
+        case GET_NHL_CRITIC: 
             return {
                 ...state,
                 nhl: action.data
@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
                 ...state,
                 pga: action.data
             }
-        default:
+        default: 
             return state
     }
 }

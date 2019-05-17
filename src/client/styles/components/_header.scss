@@ -37,15 +37,18 @@
 }
 
 .logo {
-    display: none;
+    
     order: 2;
+  
 }
 
 .brand {
+    display: none;
     color: black;
     text-decoration: none;
     font-weight: bold;
     font-size: 40px;
+    margin-top: 10px;
 }
 
 .logo, .logo a, .goat {
@@ -58,8 +61,6 @@
     width: 3.125rem;
     height: 3.123rem;
     background-size: contain;
-    justify-self: flex-start;
-    order: 3;
 }
 
 .main {
@@ -69,7 +70,11 @@
 
 .main-item {
     display: none;
-    /* margin: 0 0.375rem; */
+    margin-top: 5px;
+}
+
+.auth { 
+    display: none;
 }
 
 .main-item a, .dropbtn{
@@ -96,17 +101,20 @@ li.dropdown {
         display: none;
     }
     .goat {
+        order: 1;
+        display: inline;
         margin: 0 0 0 1.25rem;
-        justify-self: flex-start;
-        order: 2;
         padding: 0;
     }
-    .header {
-        justify-content: flex-start;
-    }
+   
     .logo {
+        display: flex;
+        justify-self: flex-start;
+    }
+
+    .brand {
         display: inline;
-        order: 3;
+        order: 2;
     }
 
     .main-item {
@@ -115,17 +123,26 @@ li.dropdown {
     }
 
     .main {
-        display: inline;
+        display: inline-block;
         text-align: right;
         width: 70%;
         vertical-align: middle;
-        order: 4;
+        order: 3;
     }
 
     .main-items {
         list-style: none;
         text-align: right;
         
+    }
+
+    .auth {        
+        order: 4;
+        margin-left: 40px;
+        vertical-align: middle;
+        font-size: 20px;
+        margin-top: 17px;
+        font-weight: bold;
     }
 }
 
