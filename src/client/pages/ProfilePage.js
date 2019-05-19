@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchCurrentUser } from '../actions/user-actions'
+
+import requireAuth from '../components/hocs/requireAuth'
 
 const ProfilePage = (props) => (
     <div className='container'>
@@ -17,13 +18,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const loadData = (store) => {
-    return (
-        store.dispatch(fetchCurrentUser())
-    )
-}
-
 export default {
-    component: connect(mapStateToProps)(ProfilePage),
-    loadData
+    component: connect(mapStateToProps)(requireAuth(ProfilePage))
 }

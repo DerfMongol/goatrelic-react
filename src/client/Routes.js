@@ -3,6 +3,7 @@ import React from 'react'
 import App from './App'
 import CriticPage from './pages/CriticPage'
 import ProfilePage from './pages/ProfilePage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default [
     {
@@ -28,6 +29,9 @@ export default [
             {
                 ...ProfilePage,
                 path: '/profile'
+            },
+            {
+                ...NotFoundPage
             }
         ]
     }

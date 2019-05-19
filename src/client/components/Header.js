@@ -4,11 +4,25 @@ import { connect } from 'react-redux'
 
 const Header = ({ user }) => {
 
-    const authButton = user ? (
-        <a href="/api/auth/logout">Logout</a>
+    const authButton = user.data ? (
+        <div className='main-item auth'>
+            <a href="/profile">
+                <img
+                    border="0"
+                    alt="profile"
+                    src={user.data.thumbnail}
+                    width="40"
+                    height="40"
+                />
+            </a>
+            <a href="/api/auth/logout">Logout</a>
+        </div>
     ) : (
-        <a href="/api/auth/google">Login</a>
-    )
+        <div className='main-item auth'>
+            <a href="/api/auth/google">Login</a>
+        </div>
+            
+        )
 
     return (
         <header className='header'>
@@ -34,9 +48,9 @@ const Header = ({ user }) => {
                     </li>
                 </ul>
             </nav>
-            <div className='main-item auth'>
-                {authButton}
-            </div>
+            
+            {authButton}
+            
         </header>
     )
 }

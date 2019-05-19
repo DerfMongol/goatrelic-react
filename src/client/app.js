@@ -4,6 +4,7 @@ import { renderRoutes } from 'react-router-config'
 import Header from './components/Header'
 import { getNbaAllTime, getNhlAllTime, getPgaAllTime } from './actions/allTime-actions'
 import { getNbaCritic, getNhlCritic, getPgaCritic } from './actions/critic-actions'
+import { fetchCurrentUser } from './actions/user-actions'
 
 const App = ({ route }) => (
     <div>
@@ -24,7 +25,9 @@ const loadData = (store) => {
         store.dispatch(getPgaCritic()),
 
         store.dispatch(getNbaAllTime()),
-        store.dispatch(getNbaCritic())
+        store.dispatch(getNbaCritic()),
+
+        store.dispatch(fetchCurrentUser())
 
     ])
 }

@@ -481,9 +481,13 @@ li.dropdown {
   .auth {
     order: 4;
     margin-left: 40px;
-    vertical-align: middle;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+    justify-content: right; }
+  .auth a {
     font-size: 20px;
-    margin-top: 17px;
     font-weight: bold; } }
 
 .list {
@@ -577,6 +581,10 @@ li.dropdown {
 
 .user {
   color: white; }
+
+.bigWord {
+  margin-top: 100px;
+  text-align: center; }
 
 
 /*# sourceMappingURL=bundle.js.map*/

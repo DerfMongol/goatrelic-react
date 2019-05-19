@@ -44039,6 +44039,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Header */ "./src/client/components/Header.js");
 /* harmony import */ var _actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actions/allTime-actions */ "./src/client/actions/allTime-actions.js");
 /* harmony import */ var _actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/critic-actions */ "./src/client/actions/critic-actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/user-actions */ "./src/client/actions/user-actions.js");
+
 
 
 
@@ -44051,7 +44053,7 @@ var App = function App(_ref) {
 };
 
 var loadData = function loadData(store) {
-  return Promise.all([store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getNbaAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getNbaCritic"])()), store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getNhlAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getNhlCritic"])()), store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getPgaAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getPgaCritic"])()), store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getNbaAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getNbaCritic"])())]);
+  return Promise.all([store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getNbaAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getNbaCritic"])()), store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getNhlAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getNhlCritic"])()), store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getPgaAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getPgaCritic"])()), store.dispatch(Object(_actions_allTime_actions__WEBPACK_IMPORTED_MODULE_3__["getNbaAllTime"])()), store.dispatch(Object(_actions_critic_actions__WEBPACK_IMPORTED_MODULE_4__["getNbaCritic"])()), store.dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_5__["fetchCurrentUser"])())]);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -44075,9 +44077,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/client/App.js");
 /* harmony import */ var _pages_CriticPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/CriticPage */ "./src/client/pages/CriticPage.js");
 /* harmony import */ var _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/ProfilePage */ "./src/client/pages/ProfilePage.js");
+/* harmony import */ var _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/NotFoundPage */ "./src/client/pages/NotFoundPage.js");
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -44095,7 +44099,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     path: '/pga'
   }), _objectSpread({}, _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_3__["default"], {
     path: '/profile'
-  })]
+  }), _objectSpread({}, _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_4__["default"])]
 })]);
 
 /***/ }),
@@ -44608,11 +44612,23 @@ __webpack_require__.r(__webpack_exports__);
 
 var Header = function Header(_ref) {
   var user = _ref.user;
-  var authButton = user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  var authButton = user.data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-item auth"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/profile"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    border: "0",
+    alt: "profile",
+    src: user.data.thumbnail,
+    width: "40",
+    height: "40"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/api/auth/logout"
-  }, "Logout") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-item auth"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "/api/auth/google"
-  }, "Login");
+  }, "Login"));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     className: "header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -44648,9 +44664,7 @@ var Header = function Header(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/pga",
     className: "dropbtn"
-  }, "PGA")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-item auth"
-  }, authButton));
+  }, "PGA")))), authButton);
 };
 
 var mapStateToProps = function mapStateToProps(_ref2) {
@@ -44805,6 +44819,84 @@ var TrophyCase = function TrophyCase(props) {
 
 /***/ }),
 
+/***/ "./src/client/components/hocs/requireAuth.js":
+/*!***************************************************!*\
+  !*** ./src/client/components/hocs/requireAuth.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (ChildComponent) {
+  var RequireAuth =
+  /*#__PURE__*/
+  function (_Component) {
+    _inherits(RequireAuth, _Component);
+
+    function RequireAuth() {
+      _classCallCheck(this, RequireAuth);
+
+      return _possibleConstructorReturn(this, _getPrototypeOf(RequireAuth).apply(this, arguments));
+    }
+
+    _createClass(RequireAuth, [{
+      key: "render",
+      value: function render() {
+        switch (this.props.user) {
+          case false:
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+              to: "/"
+            });
+
+          case null:
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
+
+          default:
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ChildComponent, this.props);
+        }
+      }
+    }]);
+
+    return RequireAuth;
+  }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+  var mapStateToProps = function mapStateToProps(state) {
+    return {
+      user: state.user.data
+    };
+  };
+
+  return Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(RequireAuth);
+});
+
+/***/ }),
+
 /***/ "./src/client/pages/CriticPage.js":
 /*!****************************************!*\
   !*** ./src/client/pages/CriticPage.js ***!
@@ -44838,6 +44930,34 @@ var CriticPage = function CriticPage() {
 
 /***/ }),
 
+/***/ "./src/client/pages/NotFoundPage.js":
+/*!******************************************!*\
+  !*** ./src/client/pages/NotFoundPage.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var NotFoundPage = function NotFoundPage(_ref) {
+  var _ref$staticContext = _ref.staticContext,
+      staticContext = _ref$staticContext === void 0 ? {} : _ref$staticContext;
+  staticContext.notFound = true;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "bigWord"
+  }, "Oops, route not found.");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  component: NotFoundPage
+});
+
+/***/ }),
+
 /***/ "./src/client/pages/ProfilePage.js":
 /*!*****************************************!*\
   !*** ./src/client/pages/ProfilePage.js ***!
@@ -44850,7 +44970,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/user-actions */ "./src/client/actions/user-actions.js");
+/* harmony import */ var _components_hocs_requireAuth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/hocs/requireAuth */ "./src/client/components/hocs/requireAuth.js");
 
 
 
@@ -44869,13 +44989,8 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-var loadData = function loadData(store) {
-  return store.dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCurrentUser"])());
-};
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  component: Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(ProfilePage),
-  loadData: loadData
+  component: Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Object(_components_hocs_requireAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(ProfilePage))
 });
 
 /***/ }),
