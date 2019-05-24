@@ -6,22 +6,20 @@ const Header = ({ user }) => {
 
     const authButton = user.data ? (
         <div className='main-item auth'>
-            <a href="/profile">
+            <Link to="/profile">
                 <img
-                    border="0"
-                    alt="profile"
                     src={user.data.thumbnail}
                     width="40"
                     height="40"
                 />
-            </a>
+            </Link>
             <a href="/api/auth/logout">Logout</a>
         </div>
     ) : (
-        <div className='main-item auth'>
-            <a href="/api/auth/google">Login</a>
-        </div>
-            
+            <div className='main-item auth'>
+                <a href="/api/auth/google">Login</a>
+            </div>
+
         )
 
     return (
@@ -31,10 +29,10 @@ const Header = ({ user }) => {
                 <span className='toggle-button__bar'></span>
                 <span className='toggle-button__bar'></span>
             </button>
-            <div className='logo'>
-                <div className='goat'></div>
+            <Link to="/" className='logo'>
+                <img className="goat" src={require("../../../public/images/Black_Goat.png")} />
                 <div className='brand'>Relic</div>
-            </div>
+            </Link>
             <nav className='main'>
                 <ul className='main-items'>
                     <li className='main-item dropdown'>
@@ -48,9 +46,9 @@ const Header = ({ user }) => {
                     </li>
                 </ul>
             </nav>
-            
+
             {authButton}
-            
+
         </header>
     )
 }

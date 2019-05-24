@@ -24,7 +24,17 @@ module.exports = {
                 { loader: 'css-loader', options: { url: false, sourceMap: true } },
                 { loader: 'sass-loader', options: { sourceMap: true } }
             ],
-        }]
+        }, {
+            test: /\.(png|jp(e*)g|svg)$/,  
+            use: [{
+                loader: 'url-loader',
+                options: { 
+                    limit: 8000,
+                    outputPath: '/images',
+                    publicPath: '/images'
+                } 
+            }]
+}]
     },
     plugins: [
         new MiniCssExtractPlugin({

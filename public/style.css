@@ -303,6 +303,13 @@ template {
 [hidden] {
   display: none; }
 
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  background: #2e2e35; }
+
 .content {
   max-width: 62.5rem;
   margin: auto;
@@ -311,67 +318,11 @@ template {
 .container {
   margin-top: 3.06rem;
   padding-top: 1.25rem;
-  text-align: center;
-  background: #2e2e35; }
+  text-align: center; }
 
 @media (min-width: 40rem) {
   .container {
     padding-top: 1.25rem; } }
-
-.critic-list {
-  background: rgba(255, 255, 255, 0.8);
-  border: .0625rem black solid;
-  border-top: none;
-  border-radius: 0 0 1rem 1rem; }
-
-.critic-profile {
-  max-width: 21rem;
-  margin: 0.5rem 0.2rem;
-  vertical-align: top;
-  background: black;
-  color: #d8c9c9;
-  padding: 1rem;
-  text-align: left;
-  width: 35%;
-  min-width: 15.7rem;
-  display: inline-block;
-  border-radius: 15px;
-  font-size: 1rem; }
-
-.critic-name {
-  margin: 0 0 0.3rem 0;
-  color: gold;
-  text-decoration: underline;
-  font-size: 1.5rem; }
-
-.critic-info {
-  color: #817b7b;
-  font-size: 0.8rem;
-  margin: 0 0 1rem 0; }
-
-.critic-stats {
-  padding-left: 20%;
-  font-weight: bold;
-  font-size: 1rem; }
-
-.critic-foot {
-  color: #817b7b;
-  font-size: 0.8rem;
-  margin: 1rem 0 0 0;
-  text-align: right; }
-
-.web-link {
-  color: gold;
-  float: left;
-  font-size: 11px;
-  text-decoration: none;
-  padding: 0.125rem 0.125rem; }
-
-@media (min-width: 40rem) {
-  .critic-profile {
-    max-width: 21rem;
-    margin: 0.5rem 0.2rem;
-    vertical-align: top; } }
 
 .link {
   display: none; }
@@ -407,6 +358,7 @@ template {
   margin: 0.6rem 0; }
 
 .logo {
+  text-decoration: none;
   order: 2; }
 
 .brand {
@@ -422,7 +374,6 @@ template {
 
 .goat {
   margin-right: 1.25rem;
-  background: url("/images/Black_Goat.png");
   width: 3.125rem;
   height: 3.123rem;
   background-size: contain; }
@@ -489,6 +440,65 @@ li.dropdown {
   .auth a {
     font-size: 20px;
     font-weight: bold; } }
+
+.bigWord {
+  margin-top: 100px;
+  text-align: center; }
+
+.critic-list {
+  background: rgba(255, 255, 255, 0.8);
+  border: .0625rem black solid;
+  border-top: none;
+  border-radius: 0 0 1rem 1rem; }
+
+.critic-profile {
+  max-width: 21rem;
+  margin: 0.5rem 0.2rem;
+  vertical-align: top;
+  background: black;
+  color: #d8c9c9;
+  padding: 1rem;
+  text-align: left;
+  width: 35%;
+  min-width: 15.7rem;
+  display: inline-block;
+  border-radius: 15px;
+  font-size: 1rem; }
+
+.critic-name {
+  margin: 0 0 0.3rem 0;
+  color: gold;
+  text-decoration: underline;
+  font-size: 1.5rem; }
+
+.critic-info {
+  color: #817b7b;
+  font-size: 0.8rem;
+  margin: 0 0 1rem 0; }
+
+.critic-stats {
+  padding-left: 20%;
+  font-weight: bold;
+  font-size: 1rem; }
+
+.critic-foot {
+  color: #817b7b;
+  font-size: 0.8rem;
+  margin: 1rem 0 0 0;
+  text-align: right; }
+
+.web-link {
+  color: gold;
+  float: left;
+  font-size: 11px;
+  text-decoration: none;
+  padding: 0.125rem 0.125rem; }
+
+@media (min-width: 40rem) {
+  .critic-profile {
+    max-width: 21rem;
+    margin: 0.5rem 0.2rem;
+    vertical-align: top; } }
 
 .list {
   display: grid;
@@ -582,9 +592,14 @@ li.dropdown {
 .user {
   color: white; }
 
-.bigWord {
-  margin-top: 100px;
-  text-align: center; }
+.lists-container {
+  display: flex;
+  margin-top: 40px; }
+
+.list-container {
+  width: 20%;
+  font-size: 16px;
+  margin: auto; }
 
 
 /*# sourceMappingURL=bundle.js.map*/

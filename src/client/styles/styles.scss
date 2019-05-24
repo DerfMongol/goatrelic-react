@@ -2,11 +2,14 @@
 @import './base/settings';
 
 @import './components/containter';
-@import './components/critic-container';
-@import './components/critic-profile';
 @import './components/header';
-@import './components/player-list';
-@import './components/trophy-case';
-@import './components/player-list-cat';
-@import './components/user-profile';
 @import './components/not-found';
+
+@import './components/criticPage/critic-container';
+@import './components/criticPage/critic-profile';
+@import './components/criticPage/player-list';
+@import './components/criticPage/trophy-case';
+@import './components/criticPage/player-list-cat';
+
+@import './components/profilePage/user-profile';
+@import './components/profilePage/sportsList';

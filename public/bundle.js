@@ -44024,6 +44024,17 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./public/images/Black_Goat.png":
+/*!**************************************!*\
+  !*** ./public/images/Black_Goat.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/23ec7baf536d94ac44d411bea35af3ec.png";
+
+/***/ }),
+
 /***/ "./src/client/App.js":
 /*!***************************!*\
   !*** ./src/client/App.js ***!
@@ -44495,10 +44506,95 @@ react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.hydrate(react__WEBPACK_IMPORTED
 
 /***/ }),
 
-/***/ "./src/client/components/CriticContainer.js":
-/*!**************************************************!*\
-  !*** ./src/client/components/CriticContainer.js ***!
-  \**************************************************/
+/***/ "./src/client/components/Header.js":
+/*!*****************************************!*\
+  !*** ./src/client/components/Header.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+
+var Header = function Header(_ref) {
+  var user = _ref.user;
+  var authButton = user.data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-item auth"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/profile"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: user.data.thumbnail,
+    width: "40",
+    height: "40"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/api/auth/logout"
+  }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-item auth"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/api/auth/google"
+  }, "Login"));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "toggle-button"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "toggle-button__bar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "toggle-button__bar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "toggle-button__bar"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/",
+    className: "logo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "goat",
+    src: __webpack_require__(/*! ../../../public/images/Black_Goat.png */ "./public/images/Black_Goat.png")
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "brand"
+  }, "Relic")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "main-items"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "main-item dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/nba",
+    className: "dropbtn"
+  }, "NBA")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "main-item dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/nhl",
+    className: "dropbtn"
+  }, "NHL")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "main-item dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/pga",
+    className: "dropbtn"
+  }, "PGA")))), authButton);
+};
+
+var mapStateToProps = function mapStateToProps(_ref2) {
+  var user = _ref2.user;
+  return {
+    user: user
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps)(Header));
+
+/***/ }),
+
+/***/ "./src/client/components/criticPage/CriticContainer.js":
+/*!*************************************************************!*\
+  !*** ./src/client/components/criticPage/CriticContainer.js ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44508,7 +44604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _CriticProfile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CriticProfile */ "./src/client/components/CriticProfile.js");
+/* harmony import */ var _CriticProfile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CriticProfile */ "./src/client/components/criticPage/CriticProfile.js");
 
 
 
@@ -44556,10 +44652,10 @@ var mapStateToProps = function mapStateToProps(state, props) {
 
 /***/ }),
 
-/***/ "./src/client/components/CriticProfile.js":
-/*!************************************************!*\
-  !*** ./src/client/components/CriticProfile.js ***!
-  \************************************************/
+/***/ "./src/client/components/criticPage/CriticProfile.js":
+/*!***********************************************************!*\
+  !*** ./src/client/components/criticPage/CriticProfile.js ***!
+  \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44593,10 +44689,10 @@ var CriticProfile = function CriticProfile(props) {
 
 /***/ }),
 
-/***/ "./src/client/components/Header.js":
-/*!*****************************************!*\
-  !*** ./src/client/components/Header.js ***!
-  \*****************************************/
+/***/ "./src/client/components/criticPage/PlayerList.js":
+/*!********************************************************!*\
+  !*** ./src/client/components/criticPage/PlayerList.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44604,92 +44700,7 @@ var CriticProfile = function CriticProfile(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-
-
-
-
-var Header = function Header(_ref) {
-  var user = _ref.user;
-  var authButton = user.data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-item auth"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/profile"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    border: "0",
-    alt: "profile",
-    src: user.data.thumbnail,
-    width: "40",
-    height: "40"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/api/auth/logout"
-  }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-item auth"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "/api/auth/google"
-  }, "Login"));
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-    className: "header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "toggle-button"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "toggle-button__bar"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "toggle-button__bar"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "toggle-button__bar"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "logo"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "goat"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "brand"
-  }, "Relic")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "main-items"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "main-item dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/nba",
-    className: "dropbtn"
-  }, "NBA")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "main-item dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/nhl",
-    className: "dropbtn"
-  }, "NHL")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "main-item dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/pga",
-    className: "dropbtn"
-  }, "PGA")))), authButton);
-};
-
-var mapStateToProps = function mapStateToProps(_ref2) {
-  var user = _ref2.user;
-  return {
-    user: user
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps)(Header));
-
-/***/ }),
-
-/***/ "./src/client/components/PlayerList.js":
-/*!*********************************************!*\
-  !*** ./src/client/components/PlayerList.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _PlayerListCat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PlayerListCat */ "./src/client/components/PlayerListCat.js");
+/* harmony import */ var _PlayerListCat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PlayerListCat */ "./src/client/components/criticPage/PlayerListCat.js");
 
 
 
@@ -44719,10 +44730,10 @@ var PlayerList = function PlayerList(props) {
 
 /***/ }),
 
-/***/ "./src/client/components/PlayerListCat.js":
-/*!************************************************!*\
-  !*** ./src/client/components/PlayerListCat.js ***!
-  \************************************************/
+/***/ "./src/client/components/criticPage/PlayerListCat.js":
+/*!***********************************************************!*\
+  !*** ./src/client/components/criticPage/PlayerListCat.js ***!
+  \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44796,10 +44807,10 @@ var mapStateToProps = function mapStateToProps(state, props) {
 
 /***/ }),
 
-/***/ "./src/client/components/TrophyCase.js":
-/*!*********************************************!*\
-  !*** ./src/client/components/TrophyCase.js ***!
-  \*********************************************/
+/***/ "./src/client/components/criticPage/TrophyCase.js":
+/*!********************************************************!*\
+  !*** ./src/client/components/criticPage/TrophyCase.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44897,6 +44908,69 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 /***/ }),
 
+/***/ "./src/client/components/profilePage/SportList.js":
+/*!********************************************************!*\
+  !*** ./src/client/components/profilePage/SportList.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var SportList = function SportList(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "list-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "1.",
+    name: props.sport[0]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "2.",
+    name: props.sport[1]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "3.",
+    name: props.sport[2]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "4 ",
+    name: props.sport[3]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "5.",
+    name: props.sport[4]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "6.",
+    name: props.sport[5]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "7.",
+    name: props.sport[6]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "8.",
+    name: props.sport[7]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "9.",
+    name: props.sport[8]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "10.",
+    name: props.sport[9]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "ENTER"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SportList);
+
+/***/ }),
+
 /***/ "./src/client/pages/CriticPage.js":
 /*!****************************************!*\
   !*** ./src/client/pages/CriticPage.js ***!
@@ -44908,9 +44982,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_TrophyCase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TrophyCase */ "./src/client/components/TrophyCase.js");
-/* harmony import */ var _components_PlayerList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PlayerList */ "./src/client/components/PlayerList.js");
-/* harmony import */ var _components_CriticContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/CriticContainer */ "./src/client/components/CriticContainer.js");
+/* harmony import */ var _components_criticPage_TrophyCase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/criticPage/TrophyCase */ "./src/client/components/criticPage/TrophyCase.js");
+/* harmony import */ var _components_criticPage_PlayerList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/criticPage/PlayerList */ "./src/client/components/criticPage/PlayerList.js");
+/* harmony import */ var _components_criticPage_CriticContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/criticPage/CriticContainer */ "./src/client/components/criticPage/CriticContainer.js");
 
 
 
@@ -44921,7 +44995,7 @@ var CriticPage = function CriticPage() {
     className: "container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "content"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TrophyCase__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PlayerList__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CriticContainer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_criticPage_TrophyCase__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_criticPage_PlayerList__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_criticPage_CriticContainer__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -44971,6 +45045,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _components_hocs_requireAuth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/hocs/requireAuth */ "./src/client/components/hocs/requireAuth.js");
+/* harmony import */ var _components_profilePage_SportList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/profilePage/SportList */ "./src/client/components/profilePage/SportList.js");
+
 
 
 
@@ -44980,7 +45056,18 @@ var ProfilePage = function ProfilePage(props) {
     className: "container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "user"
-  }, "Welcome ".concat(props.user.username), console.log(props.user)));
+  }, "Welcome ".concat(props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Create your Goat Lists"), console.log(props.user), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "lists-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_profilePage_SportList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    sport: props.user.nba,
+    title: "NBA"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_profilePage_SportList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    sport: props.user.nhl,
+    title: "NHL"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_profilePage_SportList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    sport: props.user.pga,
+    title: "PGA"
+  }))));
 };
 
 var mapStateToProps = function mapStateToProps(state) {
