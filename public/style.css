@@ -600,10 +600,33 @@ li.dropdown {
   display: flex;
   flex-direction: column;
   width: 20%;
-  font-size: 16px;
+  font-size: 1rem;
   margin: auto;
-  justify-content: center;
-  min-width: 260px; }
+  justify-content: space-between;
+  min-width: 15.7rem;
+  height: 50%;
+  min-height: 300px;
+  color: black;
+  background: black;
+  color: #d8c9c9;
+  padding: 1rem;
+  border-radius: 15px; }
+
+.title-list {
+  order: 1;
+  text-align: left;
+  margin: 0 0 0.3rem 0;
+  color: gold;
+  text-decoration: underline;
+  font-size: 1.5rem; }
+
+.list-container ul {
+  order: 2;
+  list-style-type: none;
+  text-align: left; }
+
+.bottom-list {
+  order: 3; }
 
 .list-container button {
   margin: 10px 0;

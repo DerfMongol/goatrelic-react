@@ -2,4 +2,4 @@
 /package-lock.json
 /public/bundle.js
 /build/bundle.js
-/build/bundle.js.map
+/public/bundle.js.map

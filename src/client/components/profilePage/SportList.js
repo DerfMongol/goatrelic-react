@@ -4,51 +4,84 @@ import { connect } from 'react-redux'
 import { postSportList } from '../../actions/user-actions'
 
 class SportList extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        this.state = {
+            sport: this.props.sports,
+            inputValue: ''
+        }
         this.onChange = this.onChange.bind(this)
+        this.onInputChange = this.onInputChange.bind(this)
     }
-    onChange(value, index) {
-        if (this.props.title === 'NBA') {
-            this.props.user.nba[index] = value
-        } else if (this.props.title === 'NHL') {
-            this.props.user.nhl[index] = value
-        } else if (this.props.title === 'PGA') {
-            this.props.user.pga[index] = value
+
+    onChange(e) {
+        let index = this.props.sport.length
+        let value = e.target.value
+
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            this.props.sports[index] = value
+            this.props.sportList(this.props.user)
+            this.setState({
+                sport: this.props.sports,
+                inputValue: ''
+            })
         }
     }
+
+    onInputChange(e) {
+        this.setState({
+            inputValue: e.target.value
+        })
+    }
+
     render() {
-        let players;
-        if (this.props.sport.length === 0) {
-            players = [...Array(10)]
-        } else {
-            let diff = [...Array(10 - this.props.sport.length)]
-            players = this.props.sport.concat(diff)
-        }
         return (
             <div className="list-container">
-                <div>{this.props.title}</div>
-                {
-                    players.map((player, index) =>
-                        <input
-                            key={index}
-                            type="text"
-                            placeholder={`${index + 1}.`}
-                            defaultValue={player}
-                            onKeyUp={(e) => { this.onChange(e.target.value, index) }}
-                        />
-                    )
-                }
-                <button onClick={() => { this.props.sportList(this.props.user) }}>SAVE</button>
+                <div className="title-list">{this.props.title}</div>
+                <ul>
+                    {
+                        this.props.sports.map((player, index) =>
+                            <li key={index}>
+                                {`${index + 1}. ${player}`}
+                            </li>
+                        )
+                    }
+                </ul>
+                <div className="bottom-list">
+                    <input
+                        type="text"
+                        placeholder="Next Player"
+                        onKeyDown={this.onChange}
+                        value={this.state.inputValue}
+                        onChange={this.onInputChange}
+                    />
+                </div>
             </div>
         )
     }
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
+    let sports;
+    if (props.title === 'NBA') {
+        
+            sports = state.user.data.nba
+        
+    } else if (props.title === 'NHL') {
+        
+            sports = state.user.data.nhl
+        
+    } else if (props.title === 'PGA') {
+        
+            sports = state.user.data.pga       
+    } 
+
     return {
-        user: state.user.data
+        user: state.user.data,
+        sports
+        
     }
 }
 
