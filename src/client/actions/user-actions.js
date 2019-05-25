@@ -5,6 +5,11 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
     dispatch(receiveTreeData(res.data, FETCH_CURRENT_USER))
 }
 
+export const postSportList = (sportList) => async (dispatch, getState, api) => {
+    const res = await api.post('/profile', sportList)
+    dispatch({type: POST_SPORT_LIST, data: res})
+}
+
 
 export const receiveTreeData = (data, type) => ({
     type,

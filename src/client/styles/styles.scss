@@ -1,9 +1,8 @@
 @import './base/base';
 @import './base/settings';
-
-@import './components/containter';
-@import './components/header';
-@import './components/not-found';
+@import './base/containter';
+@import './base/header';
+@import './base/not-found';
 
 @import './components/criticPage/critic-container';
 @import './components/criticPage/critic-profile';

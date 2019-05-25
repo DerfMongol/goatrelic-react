@@ -1,11 +1,26 @@
-import { FETCH_CURRENT_USER } from '../actions/types'
+import { FETCH_CURRENT_USER, POST_SPORT_LIST } from '../actions/types'
 
-export default (state = null, action) => {
+const initialState = {
+    data: {
+        nhl: [],
+        nba: [], 
+        pga: []
+    }
+}
+
+export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_CURRENT_USER: 
             return {
                 ...state,
                 data: action.data || false
+            } 
+        case POST_SPORT_LIST: 
+            return {
+                ...state,
+                nba: action.data.nba,
+                nhl: action.data.nhl,
+                pga: action.data.pga
             } 
         default: 
             return state

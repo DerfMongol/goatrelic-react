@@ -597,9 +597,20 @@ li.dropdown {
   margin-top: 40px; }
 
 .list-container {
+  display: flex;
+  flex-direction: column;
   width: 20%;
   font-size: 16px;
-  margin: auto; }
+  margin: auto;
+  justify-content: center;
+  min-width: 260px; }
+
+.list-container button {
+  margin: 10px 0;
+  padding: 5px 0;
+  width: 30%;
+  align-self: center;
+  border-radius: 10px; }
 
 
 /*# sourceMappingURL=bundle.js.map*/
