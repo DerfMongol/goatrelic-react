@@ -1,4 +1,4 @@
-import { FETCH_CURRENT_USER, POST_SPORT_LIST } from '../actions/types'
+import { FETCH_CURRENT_USER, POST_SPORT_LIST, DELETE_PLAYER } from '../actions/types'
 
 const initialState = {
     data: {

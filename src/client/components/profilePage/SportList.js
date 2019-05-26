@@ -12,6 +12,7 @@ class SportList extends Component {
         }
         this.onChange = this.onChange.bind(this)
         this.onInputChange = this.onInputChange.bind(this)
+        this.clickHandler = this.clickHandler.bind(this)
     }
 
     onChange(e) {
@@ -35,6 +36,14 @@ class SportList extends Component {
         })
     }
 
+    clickHandler(index) {
+        this.props.sports.splice(index, 1)
+        this.props.sportList(this.props.user)
+        this.setState({
+            sport: this.props.sports
+        })
+    }
+
     render() {
         return (
             <div className="list-container">
@@ -42,9 +51,12 @@ class SportList extends Component {
                 <ul>
                     {
                         this.props.sports.map((player, index) =>
-                            <li key={index}>
-                                {`${index + 1}. ${player}`}
-                            </li>
+                            <div className="player-container" key={index}>
+                                <li>
+                                    {`${index + 1}. ${player}`}
+                                </li>
+                                <button className="delete-player" onClick={() => this.clickHandler(index)}>x</button>
+                            </div>
                         )
                     }
                 </ul>
@@ -66,22 +78,22 @@ class SportList extends Component {
 const mapStateToProps = (state, props) => {
     let sports;
     if (props.title === 'NBA') {
-        
-            sports = state.user.data.nba
-        
+
+        sports = state.user.data.nba
+
     } else if (props.title === 'NHL') {
-        
-            sports = state.user.data.nhl
-        
+
+        sports = state.user.data.nhl
+
     } else if (props.title === 'PGA') {
-        
-            sports = state.user.data.pga       
-    } 
+
+        sports = state.user.data.pga
+    }
 
     return {
         user: state.user.data,
         sports
-        
+
     }
 }
 

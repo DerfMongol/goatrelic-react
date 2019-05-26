@@ -625,10 +625,20 @@ li.dropdown {
   list-style-type: none;
   text-align: left; }
 
+.player-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0; }
+
+.delete-player {
+  background: black;
+  color: gold;
+  border-radius: 5px; }
+
 .bottom-list {
   order: 3; }
 
-.list-container button {
+.bottom-list button {
   margin: 10px 0;
   padding: 5px 0;
   width: 30%;
