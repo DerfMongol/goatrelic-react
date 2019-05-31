@@ -1,6 +1,7 @@
 .lists-container {
     display: flex;
     margin-top: 40px;
+    justify-content: flex-start;
 }
 
 .list-container {
@@ -8,13 +9,12 @@
     flex-direction: column;
     width: 20%;
     font-size: 1rem;
-    margin: auto;
     justify-content: space-between;
+    margin: 80px auto;
     min-width: 15.7rem;
     height: 50%;
-    min-height: 300px;
+    // min-height: 300px;
     color: black;
-
     background: black;
     color: rgb(216, 201, 201);
     padding: 1rem;
@@ -62,4 +62,11 @@
     width: 30%;
     align-self: center;
     border-radius: 10px;
+}
+
+.bottom-list li:hover {
+    color: gold;
+    background: rgb(83, 81, 81);
+    border-radius: 5px;
+    cursor: pointer;
 }
