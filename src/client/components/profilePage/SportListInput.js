@@ -18,6 +18,13 @@ class SportListInput extends Component {
                     {player.player}
                 </li>
             )
+        } 
+        
+        if(!this.props.spellCheck){
+            list = <div className='error'>{`That is not a ${this.props.sportName} athlete`}</div>
+        } 
+        if(this.props.repeat) {
+            list = <div className='error'>Player is already in your list</div>
         }
         return (
 

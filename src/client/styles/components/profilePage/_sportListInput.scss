@@ -1,0 +1,22 @@
+.bottom-list {
+    order: 3;
+}
+
+.bottom-list button {
+    margin: 10px 0;
+    padding: 5px 0;
+    width: 30%;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.bottom-list li:hover {
+    color: gold;
+    background: rgb(83, 81, 81);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+}

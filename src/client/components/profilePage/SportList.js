@@ -10,7 +10,9 @@ class SportList extends Component {
         this.state = {
             sport: this.props.sports,
             input: '',
-            searchList: null
+            searchList: null,
+            spellCheck: true,
+            repeat: false
         }
         this.inputChange = this.inputChange.bind(this)
         this.deleteClickHandler = this.deleteClickHandler.bind(this)
@@ -30,20 +32,46 @@ class SportList extends Component {
 
         if (e.key === 'Enter') {
             e.preventDefault()
-            this.props.sports[index] = value
-            this.props.sportList(this.props.user)
-            this.setState({
-                sport: this.props.sports,
-                input: ''
-            })
+            const check = this.props.players
+                .filter(player => player.player === value)
+            const repeat = this.props.sports
+                .filter(player => player === value)
+            if (check.length > 0 && repeat.length === 0) {
+                this.props.sports[index] = value
+                this.props.sportList(this.props.user)
+                this.setState({
+                    sport: this.props.sports,
+                    input: '',
+                    spellCheck: true,
+                    repeat: false
+                })
+
+            } 
+            
+            if (check.length === 0) {
+                this.setState({
+                    spellCheck: false,
+                    input: ''
+                })
+            } 
+            
+            if (repeat.length > 0) {
+                this.setState({
+                    repeat: true,
+                    input: ''
+                })
+            }
+
         }
     }
 
     inputChange(e) {
         this.setState({
             input: e.target.value,
-            searchList: true
-        })   
+            searchList: true,
+            spellCheck: true,
+            repeat: false
+        })
     }
 
     deleteClickHandler(index) {
@@ -56,12 +84,23 @@ class SportList extends Component {
 
     listClick(player) {
         let index = this.props.sport.length
-        this.props.sport[index] = player
-        this.props.sportList(this.props.user)
-        this.setState({
-            input: '', 
-            searchList: null
-        }) 
+        const repeat = this.props.sports
+            .filter(x => x === player)
+        if (repeat.length === 0) {
+            this.props.sport[index] = player
+            this.props.sportList(this.props.user)
+            this.setState({
+                input: '',
+                searchList: null,
+                repeat: false
+            })
+        } else {
+            this.setState({
+                repeat: true,
+                input: ''
+            })
+        }
+
     }
 
     render() {
@@ -80,14 +119,17 @@ class SportList extends Component {
                         )
                     }
                 </ul>
-                <SportListInput 
+                <SportListInput
                     sport={this.props.players}
-                    input={this.state.input} 
+                    input={this.state.input}
                     inputChange={this.inputChange}
                     listClick={this.listClick}
                     enterHandler={this.enterHandler}
                     searchList={this.state.searchList}
-                 />
+                    spellCheck={this.state.spellCheck}
+                    sportName={this.props.title}
+                    repeat={this.state.repeat}
+                />
             </div>
         )
     }
