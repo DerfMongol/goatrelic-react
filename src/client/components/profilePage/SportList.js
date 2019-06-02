@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { postSportList } from '../../actions/user-actions'
 import SportListInput from './SportListInput'
+import UserPlayerList from './UserPlayerList'
 
 class SportList extends Component {
     constructor(props) {
@@ -12,12 +13,15 @@ class SportList extends Component {
             input: '',
             searchList: null,
             spellCheck: true,
-            repeat: false
+            repeat: false,
+            playerClick: true,
+            index: null
         }
         this.inputChange = this.inputChange.bind(this)
         this.deleteClickHandler = this.deleteClickHandler.bind(this)
         this.listClick = this.listClick.bind(this)
         this.enterHandler = this.enterHandler.bind(this)
+        this.playerClickHandler = this.playerClickHandler.bind(this)
     }
 
     componentDidMount() {
@@ -27,7 +31,13 @@ class SportList extends Component {
     }
 
     enterHandler(e) {
-        let index = this.props.sport.length
+        let index;
+        if (this.state.index === null) {
+            index = this.props.sport.length
+        } else {
+            index = this.state.index
+        }
+
         let value = e.target.value
 
         if (e.key === 'Enter') {
@@ -43,18 +53,20 @@ class SportList extends Component {
                     sport: this.props.sports,
                     input: '',
                     spellCheck: true,
-                    repeat: false
+                    repeat: false,
+                    playerClick: true,
+                    index: null
                 })
 
-            } 
-            
+            }
+
             if (check.length === 0) {
                 this.setState({
                     spellCheck: false,
                     input: ''
                 })
-            } 
-            
+            }
+
             if (repeat.length > 0) {
                 this.setState({
                     repeat: true,
@@ -62,6 +74,12 @@ class SportList extends Component {
                 })
             }
 
+        }
+        if (e.key === 'Escape') {
+            this.setState({
+                index: null,
+                playerClick: true
+            })
         }
     }
 
@@ -78,12 +96,20 @@ class SportList extends Component {
         this.props.sports.splice(index, 1)
         this.props.sportList(this.props.user)
         this.setState({
-            sport: this.props.sports
+            sport: this.props.sports,
+            index: null,
+            playerClick: true
         })
     }
 
     listClick(player) {
-        let index = this.props.sport.length
+        let index
+        if (this.state.index === null) {
+            index = this.props.sport.length
+        } else {
+            index = this.state.index
+        }
+
         const repeat = this.props.sports
             .filter(x => x === player)
         if (repeat.length === 0) {
@@ -92,7 +118,9 @@ class SportList extends Component {
             this.setState({
                 input: '',
                 searchList: null,
-                repeat: false
+                repeat: false,
+                playerClick: true,
+                index: null
             })
         } else {
             this.setState({
@@ -103,40 +131,46 @@ class SportList extends Component {
 
     }
 
+    playerClickHandler(index) {
+
+        this.setState({
+            playerClick: false,
+            index
+        })
+
+        console.log(index)
+    }
+
     render() {
+        let sportListInput =
+            <SportListInput
+                sport={this.props.players}
+                input={this.state.input}
+                inputChange={this.inputChange}
+                listClick={this.listClick}
+                enterHandler={this.enterHandler}
+                searchList={this.state.searchList}
+                spellCheck={this.state.spellCheck}
+                sportName={this.props.title}
+                repeat={this.state.repeat}
+                userData={this.props.sports}
+            />
         return (
             <div className="list-container">
                 <div className="title-list">{this.props.title}</div>
-                <ul>
-                    {
-                        this.props.sports.map((player, index) =>
-                            <div className="player-container" key={index}>
-                                <li>
-                                    {`${index + 1}. ${player}`}
-                                </li>
-                                <button className="delete-player" onClick={() => this.deleteClickHandler(index)}>x</button>
-                            </div>
-                        )
-                        
-                    }
-                </ul>
-                <SportListInput
-                    sport={this.props.players}
-                    input={this.state.input}
-                    inputChange={this.inputChange}
-                    listClick={this.listClick}
-                    enterHandler={this.enterHandler}
-                    searchList={this.state.searchList}
-                    spellCheck={this.state.spellCheck}
-                    sportName={this.props.title}
-                    repeat={this.state.repeat}
+                <UserPlayerList
                     userData={this.props.sports}
+                    deleteButton={this.deleteClickHandler}
+                    onClick={this.playerClickHandler}
+                    SportListInput={!this.state.playerClick ? sportListInput : null}
+                    playerClick={this.state.playerClick}
+                    index={this.state.index}
                 />
+                {this.state.playerClick ? sportListInput : null}
             </div>
         )
     }
 }
-
 
 const mapStateToProps = (state, props) => {
     let sports;

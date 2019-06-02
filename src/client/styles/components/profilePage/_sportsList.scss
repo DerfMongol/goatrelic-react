@@ -50,5 +50,18 @@
     background: black;
     color: gold;
     border-radius: 5px;
+    height: 23px;
+}
+
+.player-user-list {
+    padding: 10px 5px 5px 5px;
+    border-radius: 5px;
+}
+
+.delete-player:hover,
+.player-user-list:hover {
+    cursor: pointer;
+    background: rgb(173, 170, 170);
+    color: black;
 }
 

@@ -36,8 +36,9 @@ class SportListInput extends Component {
 
             <div className="bottom-list">
                 <input
+                    autoFocus
                     type="text"
-                    placeholder="Next Player"
+                    placeholder={`Type ${this.props.sportName} player`}
                     onKeyDown={this.props.enterHandler}
                     value={this.props.input}
                     onChange={this.props.inputChange}
