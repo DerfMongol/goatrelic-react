@@ -117,6 +117,7 @@ class SportList extends Component {
                                 <button className="delete-player" onClick={() => this.deleteClickHandler(index)}>x</button>
                             </div>
                         )
+                        
                     }
                 </ul>
                 <SportListInput
@@ -129,6 +130,7 @@ class SportList extends Component {
                     spellCheck={this.state.spellCheck}
                     sportName={this.props.title}
                     repeat={this.state.repeat}
+                    userData={this.props.sports}
                 />
             </div>
         )
