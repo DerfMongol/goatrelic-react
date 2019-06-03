@@ -9,7 +9,7 @@ class SportList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sport: this.props.sports,
+            sport: this.props.userPlayers,
             input: '',
             searchList: null,
             spellCheck: true,
@@ -33,7 +33,7 @@ class SportList extends Component {
     enterHandler(e) {
         let index;
         if (this.state.index === null) {
-            index = this.props.sport.length
+            index = this.props.userPlayers.length
         } else {
             index = this.state.index
         }
@@ -42,22 +42,21 @@ class SportList extends Component {
 
         if (e.key === 'Enter') {
             e.preventDefault()
-            const check = this.props.players
+            const check = this.props.criticPlayers
                 .filter(player => player.player === value)
-            const repeat = this.props.sports
+            const repeat = this.props.userPlayers
                 .filter(player => player === value)
             if (check.length > 0 && repeat.length === 0) {
-                this.props.sports[index] = value
+                this.props.userPlayers[index] = value
                 this.props.sportList(this.props.user)
                 this.setState({
-                    sport: this.props.sports,
+                    sport: this.props.userPlayers,
                     input: '',
                     spellCheck: true,
                     repeat: false,
                     playerClick: true,
                     index: null
                 })
-
             }
 
             if (check.length === 0) {
@@ -93,10 +92,10 @@ class SportList extends Component {
     }
 
     deleteClickHandler(index) {
-        this.props.sports.splice(index, 1)
+        this.props.userPlayers.splice(index, 1)
         this.props.sportList(this.props.user)
         this.setState({
-            sport: this.props.sports,
+            sport: this.props.userPlayers,
             index: null,
             playerClick: true
         })
@@ -105,15 +104,15 @@ class SportList extends Component {
     listClick(player) {
         let index
         if (this.state.index === null) {
-            index = this.props.sport.length
+            index = this.props.userPlayers.length
         } else {
             index = this.state.index
         }
 
-        const repeat = this.props.sports
+        const repeat = this.props.userPlayers
             .filter(x => x === player)
         if (repeat.length === 0) {
-            this.props.sport[index] = player
+            this.props.userPlayers[index] = player
             this.props.sportList(this.props.user)
             this.setState({
                 input: '',
@@ -128,7 +127,6 @@ class SportList extends Component {
                 input: ''
             })
         }
-
     }
 
     playerClickHandler(index) {
@@ -137,14 +135,12 @@ class SportList extends Component {
             playerClick: false,
             index
         })
-
-        console.log(index)
     }
 
     render() {
         let sportListInput =
             <SportListInput
-                sport={this.props.players}
+                sport={this.props.criticPlayers}
                 input={this.state.input}
                 inputChange={this.inputChange}
                 listClick={this.listClick}
@@ -153,16 +149,16 @@ class SportList extends Component {
                 spellCheck={this.state.spellCheck}
                 sportName={this.props.title}
                 repeat={this.state.repeat}
-                userData={this.props.sports}
+                userData={this.props.userPlayers}
             />
         return (
             <div className="list-container">
                 <div className="title-list">{this.props.title}</div>
                 <UserPlayerList
-                    userData={this.props.sports}
+                    userData={this.props.userPlayers}
                     deleteButton={this.deleteClickHandler}
                     onClick={this.playerClickHandler}
-                    SportListInput={!this.state.playerClick ? sportListInput : null}
+                    SportListInput={sportListInput}
                     playerClick={this.state.playerClick}
                     index={this.state.index}
                 />
@@ -172,37 +168,10 @@ class SportList extends Component {
     }
 }
 
-const mapStateToProps = (state, props) => {
-    let sports;
-    let players;
-    if (props.title === 'NBA') {
-
-        sports = state.user.data.nba
-        players = state.allTime.nba
-
-    } else if (props.title === 'NHL') {
-
-        sports = state.user.data.nhl
-        players = state.allTime.nhl
-
-    } else if (props.title === 'PGA') {
-
-        sports = state.user.data.pga
-        players = state.allTime.pga
-    }
-
-    return {
-        user: state.user.data,
-        players,
-        sports
-
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         sportList: (data) => { dispatch(postSportList(data)) }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SportList)
+export default connect(null, mapDispatchToProps)(SportList)

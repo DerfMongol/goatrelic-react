@@ -11,9 +11,9 @@ const ProfilePage = (props) => (
             <div>Create your Goat Lists</div>
             {console.log(props.user)}
             <div className="lists-container">
-                <SportList sport={props.user.nba} title="NBA" />
-                <SportList sport={props.user.nhl} title="NHL"/>
-                <SportList sport={props.user.pga} title="PGA"/>
+                <SportList user={props.user} userPlayers={props.user.nba} criticPlayers={props.allTime.nba} title="NBA" />
+                <SportList user={props.user} userPlayers={props.user.nhl} criticPlayers={props.allTime.nhl} title="NHL"/>
+                <SportList user={props.user} userPlayers={props.user.pga} criticPlayers={props.allTime.pga} title="PGA"/>
             </div>
 
         </h1>
@@ -22,7 +22,8 @@ const ProfilePage = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user.data
+        user: state.user.data,
+        allTime: state.allTime
     }
 }
 
