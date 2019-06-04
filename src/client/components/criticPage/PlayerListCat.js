@@ -1,8 +1,5 @@
 import React from 'react'
 
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
-
 const PlayerListCat = (props) => (
     <div className="cats">
         <div className="catshead">{props.title}</div>
@@ -23,33 +20,8 @@ const PlayerListCat = (props) => (
 
             })
         }
-
     </div>
-
 )
 
-const mapStateToProps = (state, props) => {
 
-    if (props.match.path === '/nba') {
-        return {
-            allTime: state.allTime.nba
-        }
-    } else if (props.match.path === '/nhl') {
-        return {
-            allTime: state.allTime.nhl
-        }
-    } else if (props.match.path === '/pga') {
-        return {
-            allTime: state.allTime.pga
-        }
-    } else {
-        return {
-            allTime: state.allTime.nba
-        }
-        
-    }
-    
-}
-
-
-export default withRouter(connect(mapStateToProps)(PlayerListCat))
+export default PlayerListCat

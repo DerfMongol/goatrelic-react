@@ -6,20 +6,22 @@ import CriticProfile from './CriticProfile'
 
 const CriticContainer = (props) => (
     <div>
-        <div className='stat-head'>Critics</div>
+        <div className='stat-head'>{`Critics (${props.critics.length})`}</div>
         <div className='critic-list'>
             {
-                props.critics.map((critic, index) => (
-                    <CriticProfile
-                        key={critic._id}
-                        name={critic.name}
-                        job={critic.job}
-                        date={critic.date}
-                        players={critic.players}
-                        url={critic.url}
-                        pic={critic.pic}
-                    />
-                ))
+                props.critics
+                    .sort((a, b) => b.players.length - a.players.length)
+                    .map((critic, index) => (
+                        <CriticProfile
+                            key={critic._id}
+                            name={critic.name}
+                            job={critic.job}
+                            date={critic.date}
+                            players={critic.players}
+                            url={critic.url}
+                            pic={critic.pic}
+                        />
+                    ))
             }
         </div>
     </div>
