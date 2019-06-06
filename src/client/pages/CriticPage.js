@@ -3,10 +3,12 @@ import React from 'react'
 import TrophyCase from '../components/criticPage/TrophyCase'
 import PlayerList from '../components/criticPage/PlayerList'
 import CriticContainer from '../components/criticPage/CriticContainer';
+import ListHeader from '../components/criticPage/ListHeader'
 
 const CriticPage = () => (
     <div className='container'>
         <div className='content'>
+            <ListHeader />
             <TrophyCase />
             <PlayerList />
             <CriticContainer />
