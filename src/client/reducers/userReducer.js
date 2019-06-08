@@ -1,11 +1,13 @@
-import { FETCH_CURRENT_USER, POST_SPORT_LIST, DELETE_PLAYER } from '../actions/types'
+import { FETCH_CURRENT_USER, POST_SPORT_LIST, FETCH_ALL_USERS } from '../actions/types'
 
 const initialState = {
     data: {
         nhl: [],
         nba: [], 
-        pga: []
+        pga: [],
+        users: []
     }
+    
 }
 
 export default (state = initialState, action) => {
@@ -22,6 +24,11 @@ export default (state = initialState, action) => {
                 nhl: action.data.nhl,
                 pga: action.data.pga
             } 
+        case FETCH_ALL_USERS:
+            return {
+                ...state,
+                users: action.data
+            }
         default: 
             return state
     }

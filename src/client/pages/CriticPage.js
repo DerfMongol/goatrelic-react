@@ -1,21 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { renderRoutes } from 'react-router-config'
+import {withRouter } from 'react-router-dom'
 
-import TrophyCase from '../components/criticPage/TrophyCase'
-import PlayerList from '../components/criticPage/PlayerList'
-import CriticContainer from '../components/criticPage/CriticContainer';
 import ListHeader from '../components/criticPage/ListHeader'
 
-const CriticPage = () => (
-    <div className='container'>
-        <div className='content'>
-            <ListHeader />
-            <TrophyCase />
-            <PlayerList />
-            <CriticContainer />
-        </div>
-    </div>
-)
+const CriticPage = ({ route }) => {
+    
+        return (
+            <div>
+                <div className='container'>
+                    <div className='content'>
+                        <ListHeader />
+                        {renderRoutes(route.routes)}
+                    </div>
+                </div>
+            </div>
+    
+        )
+    }
 
 export default {
-    component: CriticPage
+    component: withRouter(CriticPage) 
 }

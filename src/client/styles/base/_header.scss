@@ -79,14 +79,13 @@
 .main-item a, .dropbtn{
     color: black;
     text-decoration: none;
-    padding: .1875rem .1875rem;
+    padding: .3rem .3rem;
 }
 
 .main-item a:hover,
 .main-item a:active {
     color: gold;
     background: rgb(0, 0, 0);
-    border-radius: 5px;
     /* border-radius: 10%; */
 }
 

@@ -10,7 +10,9 @@ export default (req, store, context) => {
     const content = renderToString(
         <Provider store={store}>
             <StaticRouter location={req.path} context={context}>
-                <div>{renderRoutes(Routes)}</div>
+                <div>
+                    {renderRoutes(Routes)}
+                </div>  
             </StaticRouter>
         </Provider>
     )
@@ -21,16 +23,16 @@ export default (req, store, context) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="icon" href="data:,">
-                <link rel="stylesheet" type="text/css" href="style.css">
+                <link rel="stylesheet" type="text/css" href="/style.css">
                 <title>Goat</title>
-                <link rel="icon" type="image/png" href="./images/favicon.ico"/>
+                <link rel="icon" type="image/png" href="/images/favicon.ico"/>
             </head>
             <body>
                 <div id="app">${content}</div>
                 <script>
                     window.INITIAL_STATE = ${serialize(store.getState())}
                 </script>
-                <script src="bundle.js"></script>
+                <script src="/bundle.js"></script>
             </body>
         </html>
     `

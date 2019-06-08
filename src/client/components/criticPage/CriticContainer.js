@@ -29,15 +29,15 @@ const CriticContainer = (props) => (
 
 const mapStateToProps = (state, props) => {
 
-    if (props.match.path === '/nba') {
+    if (props.match.path.includes('/nba')) {
         return {
             critics: state.critics.nba
         }
-    } else if (props.match.path === '/nhl') {
+    } else if (props.match.path.includes('/nhl')) {
         return {
             critics: state.critics.nhl
         }
-    } else if (props.match.path === '/pga') {
+    } else if (props.match.path.includes('/pga')) {
         return {
             critics: state.critics.pga
         }
