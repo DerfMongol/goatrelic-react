@@ -18,15 +18,9 @@ export default [
             },
             {
                 ...CriticPage,
-                path: ['/nba', '/nhl', '/pga'],
-                routes: [
-                    {
-                        ...SportStats,
-                        path: ['/nba', '/nba/critics', '/nba/players', '/nba/fans',
-                            '/nhl', '/nhl/critics', '/nhl/players', '/nhl/fans', '/pga',
-                            '/pga/critics', '/pga/players', '/pga/fans']
-                    }
-                ]
+                path: ['/nba', '/nba/critics', '/nba/players', '/nba/fans',
+                '/nhl', '/nhl/critics', '/nhl/players', '/nhl/fans', '/pga',
+                '/pga/critics', '/pga/players', '/pga/fans']
             },
             {
                 ...ProfilePage,

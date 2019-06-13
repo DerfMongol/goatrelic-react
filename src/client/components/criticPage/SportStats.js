@@ -9,13 +9,16 @@ import FansContainer from './FansContainer';
 
 const SportStats = (props) => {
     let pathContainer 
-        if (props.path === 'critics') {
-            pathContainer = <CriticContainer profiles={props.profiles}/>
-        } else if (props.path === 'players') {
+        console.log(props.route)
+        if (props.route === 'critics') {
+            pathContainer = <CriticContainer profiles={props.critics}/>
+        } else if (props.route === 'players') {
             pathContainer = null
-        } else if (props.path === 'fans') {
-            pathContainer = <FansContainer profiles={props.profiles}/>
-        } 
+        } else if (props.route === 'fans') {
+            pathContainer = <FansContainer profiles={props.user}/>
+        } else {
+            pathContainer = null
+        }
     
     return (
         <div>
@@ -28,27 +31,25 @@ const SportStats = (props) => {
 
 const mapStateToProps = (state, props) => {
 
-    if (props.path === 'critics') {
+    if (props.route === 'critics') {
         return {
-            profiles: state.critics
+            critics: state.critics
         }
-    } else if (props.path === 'players') {
+    } else if (props.route === 'players') {
         return {
-            profiles: null
+            players: null
         }
-    } else if (props.path === 'fans') {
+    } else if (props.route === 'fans') {
         return {
-            profiles: state.user.users
+            user: state.user.users
         }
     } else {
         return {
-            profiles: state.critics
+            critics: state.critics
         }
 
     }
 
 }
 
-export default {
-    component: withRouter(connect(mapStateToProps)(SportStats))
-}
+export default withRouter(connect(mapStateToProps)(SportStats))
