@@ -12,9 +12,10 @@ const CriticContainer = (props) => {
     } else if (props.match.path.includes('/pga')) {
         profiles = props.profiles.pga
     }
+
     return (
         <div>
-            <div className='stat-head'>{`Critics (${profiles.length})`}</div>
+            <div className='stat-head'>{`${props.route.charAt(0).toUpperCase() + props.route.slice(1)}  (${profiles.length})`}</div>
             <div className='critic-list'>
                 {
                     profiles

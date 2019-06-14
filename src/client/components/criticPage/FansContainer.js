@@ -11,18 +11,19 @@ class FansContainer extends Component {
         }
         this.profileSizeHandler = this.profileSizeHandler.bind(this)
     }
-    profileSizeHandler() {
-        console.log('hit')
-        this.setState((prevState, props) => ({
-            profileSize: prevState.profileSize + 1
-        }))
+    
+    profileSizeHandler(count) {
+        this.setState({
+            profileSize: count
+        })
     }
     render() {
         let count = 0
         return (
             <div>
-                <div className='stat-head'>{`Critics (${this.state.profileSize})`}</div>
+                <div className='stat-head'>{`Fans (${this.state.profileSize})`}</div>
                 <div className='critic-list'>
+                
                     {
                         
                         this.props.profiles
@@ -46,11 +47,13 @@ class FansContainer extends Component {
                                     players = profile.pga
                                 }
                                 if (players.length > 0) {
+                                    count++
+                                    
                                     
                                     return <CriticProfile
                                         key={profile._id}
                                         name={profile.username}
-                                        increment={() => this.profileSizeHandler()}
+                                
                                         // job={profile.job}
                                         // date={profile.date}
                                         players={players}
@@ -63,6 +66,7 @@ class FansContainer extends Component {
 
                             })
                     }
+                    {this.profileSizeHandler(count)}
                 </div>
             </div>
         )

@@ -18,10 +18,12 @@ class CriticPage extends Component {
         console.log(this.props.match.path)
         if (this.props.location.pathname.includes('critics')) {
             path = 'critics'
-        } if (this.props.location.pathname.includes('players')) {
+        } else if (this.props.location.pathname.includes('players')) {
             path = 'players'
-        } if (this.props.location.pathname.includes('fans')) {
+        } else if (this.props.location.pathname.includes('fans')) {
             path = 'fans'
+        } else {
+            path = 'critics'
         }
         this.setState({
             path
