@@ -1,25 +1,24 @@
 
 .list-header {
+    width: 100%;
     display: flex;
-    border-bottom: 2px solid white;
-    border-left: 2px solid white;
-    margin-top: 4rem;
+    position: fixed;
+    z-index: 10;
+    color: gold;
+    background: rgb(0, 0, 0);
+    top: 43.2px;
+    height: 40px;
 }
 .list-header-title {
-    color: white;
-    font-size: $title-font;
-    width: 12%;
-    padding: 0.5rem;
-    text-align: center;
-    border-top: 2px solid rgb(46, 46, 53);
-    border-bottom: 2px solid rgb(46, 46, 53);
-    border-right: 2px solid white;
-    border-left: 2px solid rgb(46, 46, 53);
+    order: 1;
+    margin: 0 0.5rem;
+    color: gold;
     text-decoration: none;
+    padding: .3rem .6rem;
 }
 
-.list-header-title:hover {
+.list-header-title:hover,
+.list-header-active {
     cursor: pointer;
-    background: black;
-    color: gold;
+    border-bottom: 2px solid white;
 }

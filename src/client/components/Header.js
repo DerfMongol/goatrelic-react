@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const Header = ({ user }) => {
@@ -7,22 +7,20 @@ const Header = ({ user }) => {
     const authButton = user.data ? (
         <div className='auth'>
             <Link to="/profile">
-                <img
-                    src={user.data.thumbnail}
-                    width="35"
-                    height="35"
-                />
+                <img src={user.data.thumbnail}/>
             </Link>
             <div className="main-item">
                 <a href="/api/auth/logout" >Logout</a>
             </div>
-            
+
 
 
         </div>
     ) : (
-            <div className='auth main-item'>
-                <a href="/api/auth/google">Login</a>
+            <div className='auth'>
+                <div className='main-item'>
+                    <a href="/api/auth/google">Login</a>
+                </div>
             </div>
 
         )
@@ -41,13 +39,13 @@ const Header = ({ user }) => {
             <nav className='main'>
                 <ul className='main-items'>
                     <li className='main-item dropdown'>
-                        <Link to="/nba" className="dropbtn">NBA</Link>
+                        <NavLink to="/nba" className="dropbtn" activeClassName="active">NBA</NavLink>
                     </li>
                     <li className='main-item dropdown'>
-                        <Link to="/nhl" className="dropbtn">NHL</Link>
+                        <NavLink to="/nhl" className="dropbtn" activeClassName="active">NHL</NavLink>
                     </li>
                     <li className='main-item dropdown'>
-                        <Link to="/pga" className="dropbtn">PGA</Link>
+                        <NavLink to="/pga" className="dropbtn" activeClassName="active">PGA</NavLink>
                     </li>
                 </ul>
             </nav>

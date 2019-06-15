@@ -39,9 +39,9 @@ class CriticPage extends Component {
     render() {
         return (
             <div>
+                <ListHeader onPathClick={this.onPathClick} />
                 <div className='container'>
                     <div className='content'>
-                        <ListHeader onPathClick={this.onPathClick} />
                         <SportStats route={this.state.path} />
                     </div>
                 </div>
