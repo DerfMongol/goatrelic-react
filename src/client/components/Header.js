@@ -5,18 +5,23 @@ import { connect } from 'react-redux'
 const Header = ({ user }) => {
 
     const authButton = user.data ? (
-        <div className='main-item auth'>
+        <div className='auth'>
             <Link to="/profile">
                 <img
                     src={user.data.thumbnail}
-                    width="40"
-                    height="40"
+                    width="35"
+                    height="35"
                 />
             </Link>
-            <a href="/api/auth/logout">Logout</a>
+            <div className="main-item">
+                <a href="/api/auth/logout" >Logout</a>
+            </div>
+            
+
+
         </div>
     ) : (
-            <div className='main-item auth'>
+            <div className='auth main-item'>
                 <a href="/api/auth/google">Login</a>
             </div>
 

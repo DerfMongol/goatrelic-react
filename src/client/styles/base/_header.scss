@@ -47,8 +47,8 @@
     color: black;
     text-decoration: none;
     font-weight: bold;
-    font-size: 40px;
-    margin-top: 10px;
+    font-size: $header-font;
+    margin: auto 0;
 }
 
 .logo, .logo a, .goat {
@@ -56,9 +56,9 @@
 }
 
 .goat {
-    margin-right: 1.25rem;
-    width: 3.125rem;
-    height: 3.123rem;
+    margin-right: 1.2rem;
+    width: 2.7rem;
+    height: 2.7rem;
     background-size: contain;
 }
 
@@ -68,15 +68,15 @@
 
 
 .main-item {
-    display: none;
-    margin-top: 5px;
+    font-size: $stat-font;
 }
 
 .auth { 
     display: none;
 }
 
-.main-item a, .dropbtn{
+.main-item a, 
+.dropbtn {
     color: black;
     text-decoration: none;
     padding: .3rem .3rem;
@@ -115,14 +115,15 @@ li.dropdown {
         order: 2;
     }
 
-    .main-item {
-        display: inline-block;
-        padding-right: 3%;
+    .main-item
+     {
+        order: 1;
+        padding: 0 3%;
         
     }
 
     .main {
-        display: inline-block;
+        display: flex;
         text-align: right;
         width: 70%;
         vertical-align: middle;
@@ -130,20 +131,25 @@ li.dropdown {
     }
 
     .main-items {
+        display: flex;
+        align-items: center;
+        margin: 0;
         list-style: none;
-        text-align: right;
+        text-align: left;
         
     }
 
-    .auth {        
+    .auth {  
+        display: flex;      
         order: 4;
-        margin-left: 40px;
+        margin: auto 0;
+        padding-right: 3%;
         list-style: none;
-        display: flex;
         align-items: center;
         min-width: 150px;
         justify-content: right;
     }
+
 
     .auth a {
         font-size: $title-font;
