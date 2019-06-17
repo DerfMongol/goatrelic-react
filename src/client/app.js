@@ -5,7 +5,7 @@ import Header from './components/Header'
 import { getNbaAllTime, getNhlAllTime, getPgaAllTime } from './actions/allTime-actions'
 import { getNbaCritic, getNhlCritic, getPgaCritic } from './actions/critic-actions'
 import { fetchCurrentUser, fetchAllUsers } from './actions/user-actions'
-import { getNbaFans, getNhlFans, getPgaFans } from './actions/fans-actions'
+// import { getNbaFans, getNhlFans, getPgaFans } from './actions/fans-actions'
 
 const App = ({ route }) => (
     <div>
@@ -18,15 +18,15 @@ const loadData = (store) => {
     return Promise.all([
         store.dispatch(getNbaAllTime()),
         store.dispatch(getNbaCritic()),
-        store.dispatch(getNbaFans()),
+        // store.dispatch(getNbaFans()),
 
         store.dispatch(getNhlAllTime()),
         store.dispatch(getNhlCritic()),
-        store.dispatch(getNhlFans()),
+        // store.dispatch(getNhlFans()),
 
         store.dispatch(getPgaAllTime()),
         store.dispatch(getPgaCritic()),
-        store.dispatch(getPgaFans()),
+        // store.dispatch(getPgaFans()),
 
         store.dispatch(fetchCurrentUser()),
         store.dispatch(fetchAllUsers())

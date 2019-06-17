@@ -8,7 +8,7 @@ const PlayerList = (props) => (
     <div className='list'>
         <div className='stat-head'>
             {
-                `Critics Top 
+                `${props.route.charAt(0).toUpperCase() + props.route.slice(1)} Top 
                 ${props.match.path.replace('/', '').toUpperCase()} 
                 Players of All Time`
             }

@@ -15,8 +15,14 @@ const CriticProfile = (props) =>
                     </div>
                 )
             }
-            <div className='critic-stats'>...</div>
-            <div className='critic-stats'>{`(${props.players.length})`}</div>
+            {props.players.length > 10 ?
+                <div>
+                    <div className='critic-stats'>...</div>
+                    <div className='critic-stats'>{`(${props.players.length})`}</div>
+                </div>
+                : null
+            }
+
             <div className='critic-foot'>
                 {props.date}
                 <a className='web-link' href={props.url}>Source</a>

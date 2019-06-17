@@ -3,7 +3,6 @@ import React from 'react'
 import App from './App'
 import Home from './pages/Home'
 import CriticPage from './pages/CriticPage'
-import SportStats from './components/criticPage/SportStats'
 import ProfilePage from './pages/ProfilePage'
 import NotFoundPage from './pages/NotFoundPage'
 

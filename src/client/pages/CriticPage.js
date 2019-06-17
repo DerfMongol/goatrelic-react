@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { renderRoutes } from 'react-router-config'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import ListHeader from '../components/criticPage/ListHeader'
 import SportStats from '../components/criticPage/SportStats'
+import { getNbaFans, getNhlFans, getPgaFans } from '../actions/fans-actions'
+
 
 class CriticPage extends Component {
     constructor(props) {
@@ -12,6 +15,12 @@ class CriticPage extends Component {
             path: props.match.path.replace('/', '')
         }
         this.onPathClick = this.onPathClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.getNbaFans()
+        this.props.getNhlFans()
+        this.props.getPgaFans()
     }
     componentWillMount() {
         let path
@@ -50,6 +59,15 @@ class CriticPage extends Component {
     }
 }
 
+const loadData = (store) => {
+    return Promise.all([
+        store.dispatch(getNbaFans()),
+        store.dispatch(getNhlFans()),
+        store.dispatch(getPgaFans()),
+    ])
+}
+
 export default {
-    component: withRouter(CriticPage)
+    loadData,
+    component: withRouter(connect(null, {getNbaFans, getNhlFans, getPgaFans})(CriticPage))
 }

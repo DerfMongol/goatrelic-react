@@ -9,7 +9,7 @@ const Header = ({ user }) => {
             <Link to="/profile">
                 <img src={user.data.thumbnail}/>
             </Link>
-            <div className="main-item">
+            <div className='log-padding'>
                 <a href="/api/auth/logout" >Logout</a>
             </div>
 
@@ -18,7 +18,7 @@ const Header = ({ user }) => {
         </div>
     ) : (
             <div className='auth'>
-                <div className='main-item'>
+                <div className='log-padding'>
                     <a href="/api/auth/google">Login</a>
                 </div>
             </div>

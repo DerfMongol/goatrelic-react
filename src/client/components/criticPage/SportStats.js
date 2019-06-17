@@ -11,7 +11,7 @@ const SportStats = (props) => {
     return (
         <div>
             <TrophyCase />
-            <PlayerList />
+            <PlayerList route={props.route}/>
             <CriticContainer profiles={props.profiles} route={props.route} />
         </div>
     )
