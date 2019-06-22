@@ -5,6 +5,8 @@ export const GET_PGA_CRITIC ='GET_PGA_CRITIC'
 export const GET_NBA_FANS = 'GET_NBA_FANS'
 export const GET_NHL_FANS ='GET_NHL_FANS'
 export const GET_PGA_FANS ='GET_PGA_FANS'
+export const DELETE_FANS = 'DELETE_FANS'
+
 
 export const GET_NBA_ALLTIME = 'GET_NBA_ALLTIME'
 export const GET_NHL_ALLTIME ='GET_NHL_ALLTIME'

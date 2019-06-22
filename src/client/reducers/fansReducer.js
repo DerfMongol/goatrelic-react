@@ -1,4 +1,4 @@
-import { GET_NBA_FANS, GET_NHL_FANS, GET_PGA_FANS } from '../actions/types'
+import { GET_NBA_FANS, GET_NHL_FANS, GET_PGA_FANS, DELETE_FANS } from '../actions/types'
 
 const initialState = {
     nba: [], 
@@ -22,6 +22,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 pga: action.data
+            }
+        case DELETE_FANS:
+            console.log(state)
+            return {
+                ...state,
+                ...state[action.data.sport].filter((fan) => fan.googleId !== action.data.id)
             }
         default: 
             return state

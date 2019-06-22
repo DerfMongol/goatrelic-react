@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { postSportList } from '../../actions/user-actions'
+import { deleteFans } from '../../actions/fans-actions'
 import SportListInput from './SportListInput'
 import UserPlayerList from './UserPlayerList'
 
@@ -92,8 +93,15 @@ class SportList extends Component {
     }
 
     deleteClickHandler(index) {
+        const sport = this.props.title[0] + this.props.title.charAt(1).toLowerCase() + this.props.title.charAt(2).toLowerCase()
+        if (this.props.userPlayers.length === 1) {
+            console.log(this.props.userPlayers)
+            this.props.deletFan(this.props.user.googleId, sport)
+        } else {
+            this.props.sportList(this.props.user)
+        }
         this.props.userPlayers.splice(index, 1)
-        this.props.sportList(this.props.user)
+        
         this.setState({
             sport: this.props.userPlayers,
             index: null,
@@ -170,7 +178,8 @@ class SportList extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sportList: (data) => { dispatch(postSportList(data)) }
+        sportList: (data) => { dispatch(postSportList(data)) },
+        deletFan: (data, sport) => { dispatch(deleteFans(data, sport)) }
     }
 }
 
