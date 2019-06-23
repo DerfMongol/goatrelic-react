@@ -11,7 +11,7 @@ const SportStats = (props) => {
     return (
         <div>
             <TrophyCase />
-            <PlayerList route={props.route}/>
+            <PlayerList route={props.route} allTime={props.allTime}/>
             <CriticContainer profiles={props.profiles} route={props.route} />
         </div>
     )
@@ -21,19 +21,23 @@ const mapStateToProps = (state, props) => {
 
     if (props.route === 'critics') {
         return {
-            profiles: state.critics
+            profiles: state.critics,
+            allTime: state.allTime
         }
     } else if (props.route === 'players') {
         return {
-            profiles: state.critics
+            profiles: state.critics,
+            allTime: state.allTime
         }
     } else if (props.route === 'fans') {
         return {
-            profiles: state.fans
+            profiles: state.fans,
+            allTime: state.fansAllTime
         }
     } else {
         return {
-            profiles: state.critics
+            profiles: state.critics,
+            allTime: state.allTime
         }
 
     }

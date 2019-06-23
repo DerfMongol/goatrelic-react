@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import ListHeader from '../components/criticPage/ListHeader'
 import SportStats from '../components/criticPage/SportStats'
 import { getNbaFans, getNhlFans, getPgaFans } from '../actions/fans-actions'
+import { getNbaFansAllTime, getNhlFansAllTime, getPgaFansAllTime } from '../actions/fansAllTime-actions'
+
 
 
 class CriticPage extends Component {
@@ -21,6 +23,9 @@ class CriticPage extends Component {
         this.props.getNbaFans()
         this.props.getNhlFans()
         this.props.getPgaFans()
+        this.props.getNbaFansAllTime()
+        this.props.getNhlFansAllTime()
+        this.props.getPgaFansAllTime()
     }
     componentWillMount() {
         let path
@@ -39,7 +44,6 @@ class CriticPage extends Component {
         })
     }
     onPathClick(path) {
-        console.log(path)
         this.setState({
             path
         })
@@ -64,10 +68,20 @@ const loadData = (store) => {
         store.dispatch(getNbaFans()),
         store.dispatch(getNhlFans()),
         store.dispatch(getPgaFans()),
+        store.dispatch(getNbaFansAllTime()),
+        store.dispatch(getNhlFansAllTime()),
+        store.dispatch(getPgaFansAllTime()),
     ])
 }
 
 export default {
     loadData,
-    component: withRouter(connect(null, {getNbaFans, getNhlFans, getPgaFans})(CriticPage))
+    component: withRouter(connect(null, {
+        getNbaFans,
+        getNhlFans,
+        getPgaFans,
+        getNbaFansAllTime,
+        getNhlFansAllTime,
+        getPgaFansAllTime
+    })(CriticPage))
 }
