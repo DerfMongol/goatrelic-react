@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-const CriticProfile = (props) =>
-
-    (
+const CriticProfile = (props) => (
         <div className='critic-profile'>
             <div className='critic-name'>{props.name}</div>
             <div className='critic-info'>{props.job}</div>
@@ -30,9 +28,6 @@ const CriticProfile = (props) =>
         </div>
     )
 
-
-
-
-
-
 export default CriticProfile
+
+

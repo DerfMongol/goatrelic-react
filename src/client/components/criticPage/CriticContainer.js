@@ -29,6 +29,7 @@ const CriticContainer = (props) => {
                                 players={profile.players}
                                 url={profile.url}
                                 pic={profile.pic}
+                                router={props.route}
                             />
                         ))
                 }

@@ -1,4 +1,4 @@
-import { GET_NBAFANS_ALLTIME, GET_NHLFANS_ALLTIME, GET_PGAFANS_ALLTIME } from '../actions/types'
+import { GET_NBAFANS_ALLTIME, GET_NHLFANS_ALLTIME, GET_PGAFANS_ALLTIME, POST_FANS_ALLTIME } from '../actions/types'
 
 const initialState = {
     nba: [],
@@ -23,6 +23,13 @@ export default function (state = initialState, action) {
                 ...state,
                 pga: action.data
             }
+        case POST_FANS_ALLTIME: 
+            return {
+                ...state,
+                nba: action.data.nba,
+                nhl: action.data.nhl,
+                pga: action.data.pga
+            } 
         default:
             return state
     }

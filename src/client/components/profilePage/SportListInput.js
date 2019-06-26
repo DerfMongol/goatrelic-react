@@ -19,8 +19,8 @@ class SportListInput extends Component {
                     player.player[0].toLowerCase() === this.props.input[0].toLowerCase() && 
                     !this.state.userData.includes(player.player))
                 .sort((a, b) => a.player.localeCompare(b.player))
-                .map((player) =>
-                    <li key={player._id} onClick={() => this.props.listClick(player.player)}>
+                .map((player, index) =>
+                    <li key={index} onClick={() => this.props.listClick(player.player)}>
                         {player.player}
                     </li>
                 )
