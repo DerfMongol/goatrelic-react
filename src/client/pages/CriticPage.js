@@ -7,6 +7,8 @@ import ListHeader from '../components/criticPage/ListHeader'
 import SportStats from '../components/criticPage/SportStats'
 import { getNbaFans, getNhlFans, getPgaFans } from '../actions/fans-actions'
 import { getNbaFansAllTime, getNhlFansAllTime, getPgaFansAllTime } from '../actions/fansAllTime-actions'
+import { getNbaPlayer, getNhlPlayer, getPgaPlayer } from '../actions/player-actions'
+import { getNbaPlayersAllTime, getNhlPlayersAllTime, getPgaPlayersAllTime } from '../actions/playerAllTime-actions'
 
 
 
@@ -26,6 +28,12 @@ class CriticPage extends Component {
         this.props.getNbaFansAllTime()
         this.props.getNhlFansAllTime()
         this.props.getPgaFansAllTime()
+        this.props.getNbaPlayer()
+        this.props.getNhlPlayer()
+        this.props.getPgaPlayer()
+        this.props.getNbaPlayersAllTime()
+        this.props.getNhlPlayersAllTime()
+        this.props.getPgaPlayersAllTime()
     }
     componentWillMount() {
         let path
@@ -71,6 +79,13 @@ const loadData = (store) => {
         store.dispatch(getNbaFansAllTime()),
         store.dispatch(getNhlFansAllTime()),
         store.dispatch(getPgaFansAllTime()),
+
+        store.dispatch(getNbaPlayer()),
+        store.dispatch(getNhlPlayer()),
+        store.dispatch(getPgaPlayer()),
+        store.dispatch(getNbaPlayersAllTime()),
+        store.dispatch(getNhlPlayersAllTime()),
+        store.dispatch(getPgaPlayersAllTime())
     ])
 }
 
@@ -82,6 +97,12 @@ export default {
         getPgaFans,
         getNbaFansAllTime,
         getNhlFansAllTime,
-        getPgaFansAllTime
+        getPgaFansAllTime,
+        getNbaPlayer,
+        getNhlPlayer,
+        getPgaPlayer,
+        getNbaPlayersAllTime,
+        getNhlPlayersAllTime,
+        getPgaPlayersAllTime
     })(CriticPage))
 }

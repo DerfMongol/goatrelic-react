@@ -26,8 +26,8 @@ const mapStateToProps = (state, props) => {
         }
     } else if (props.route === 'players') {
         return {
-            profiles: state.critics,
-            allTime: state.allTime
+            profiles: state.players,
+            allTime: state.playersAllTime
         }
     } else if (props.route === 'fans') {
         return {

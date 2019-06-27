@@ -1,4 +1,4 @@
-import { GET_NBAFANS_ALLTIME, GET_NHLFANS_ALLTIME, GET_PGAFANS_ALLTIME } from '../actions/types'
+import { GET_NBAPLAYERS_ALLTIME, GET_NHLPLAYERS_ALLTIME, GET_PGAPLAYERS_ALLTIME } from '../actions/types'
 
 const initialState = {
     nba: [],
@@ -8,17 +8,17 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case GET_NBAFANS_ALLTIME:
+        case GET_NBAPLAYERS_ALLTIME:
             return {
                 ...state,
                 nba: action.data
             }
-        case GET_NHLFANS_ALLTIME:
+        case GET_NHLPLAYERS_ALLTIME:
             return {
                 ...state,
                 nhl: action.data
             }
-        case GET_PGAFANS_ALLTIME:
+        case GET_PGAPLAYERS_ALLTIME:
             return {
                 ...state,
                 pga: action.data
