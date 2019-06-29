@@ -1,22 +1,10 @@
 import { FETCH_CURRENT_USER, POST_SPORT_LIST, FETCH_ALL_USERS } from './types'
+import { get, post }from './functions/data'
 
-export const fetchCurrentUser = () => async (dispatch, getState, api) => {
-    const res = await api.get(`/profile`)
-    dispatch(receiveTreeData(res.data, FETCH_CURRENT_USER))
-}
+export const fetchCurrentUser = () => get(`/profile`, FETCH_CURRENT_USER )
+export const fetchAllUsers = () => get(`/users`, FETCH_ALL_USERS )
 
-export const postSportList = (sportList) => async (dispatch, getState, api) => {
-    const res = await api.post('/profile', sportList)
-    dispatch({type: POST_SPORT_LIST, data: res})
-}
+export const postSportList = (sportList) => post('/profile', POST_SPORT_LIST, sportList )
 
-export const receiveTreeData = (data, type) => ({
-    type,
-    data
-})
 
-export const fetchAllUsers = () => async (dispatch, getState, api) => {
-    const res = await api.get(`/users`)
-    dispatch(receiveTreeData(res.data, FETCH_ALL_USERS))
-}
 
