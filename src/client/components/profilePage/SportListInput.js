@@ -11,16 +11,21 @@ class SportListInput extends Component {
 
     render() {
         let list;
+        let filteredList = this.state.sport
+            .filter(player =>
+                this.props.input === '' ||
+                player.player.toLowerCase().includes(this.props.input.toLowerCase()) &&
+                player.player[0].toLowerCase() === this.props.input[0].toLowerCase() &&
+                !this.state.userData.includes(player.player))
         if (this.props.input !== '' && this.props.searchList) {
-            list = this.state.sport
-                .filter(player =>
-                    this.props.input === '' ||
-                    player.player.toLowerCase().includes(this.props.input.toLowerCase()) &&
-                    player.player[0].toLowerCase() === this.props.input[0].toLowerCase() && 
-                    !this.state.userData.includes(player.player))
+            list = filteredList
                 .sort((a, b) => a.player.localeCompare(b.player))
                 .map((player, index) =>
-                    <li key={index} onClick={() => this.props.listClick(player.player)}>
+                    <li
+                        key={index}
+                        className={this.props.cursor === index ? 'active' : null}
+                        onClick={() => this.props.listClick(player.player)}>
+                        
                         {player.player}
                     </li>
                 )
@@ -39,7 +44,7 @@ class SportListInput extends Component {
                     autoFocus
                     type="text"
                     placeholder={`Type ${this.props.sportName} player`}
-                    onKeyDown={this.props.enterHandler}
+                    onKeyDown={(e) => this.props.enterHandler(e, filteredList)}
                     value={this.props.input}
                     onChange={this.props.inputChange}
                 />

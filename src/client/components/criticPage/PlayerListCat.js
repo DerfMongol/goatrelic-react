@@ -5,8 +5,20 @@ const PlayerListCat = (props) => (
         <div className="catshead">{props.title}</div>
         {
             props.allTime.map((player, index) => {
+                
                 if (props.title === "Rank") {
-                    return <div key={index} className="player-list">{`${index + 1}. `}</div>
+                    if (index > 0) {
+                        let count = index
+                        while(props.allTime[count - 1].lists === player.lists && props.allTime[count - 1].avg === player.avg) {
+                            count--
+                        }
+                        if (count !== index) {
+                            return <div key={index} className="player-list">{`${count + 1}.`}</div>
+                        }
+                        
+                    }
+                    return <div key={index} className="player-list">{`${index + 1}.`}</div>
+                       
                 }
                 if (props.title === "Player") {
                     return <div key={index} className="player-list">{player.player}</div>

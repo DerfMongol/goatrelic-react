@@ -16,7 +16,8 @@ class SportList extends Component {
             spellCheck: true,
             repeat: false,
             playerClick: true,
-            index: null
+            index: null,
+            cursor: 0
         }
         this.inputChange = this.inputChange.bind(this)
         this.deleteClickHandler = this.deleteClickHandler.bind(this)
@@ -31,7 +32,7 @@ class SportList extends Component {
         })
     }
 
-    enterHandler(e) {
+    enterHandler(e, list) {
         let index;
         if (this.state.index === null) {
             index = this.props.userPlayers.length
@@ -43,6 +44,9 @@ class SportList extends Component {
 
         if (e.key === 'Enter') {
             e.preventDefault()
+            if (list.length > 0) {
+                value = list[this.state.cursor].player
+            }
             const check = this.props.criticPlayers
                 .filter(player => player.player === value)
             const repeat = this.props.userPlayers
@@ -56,7 +60,8 @@ class SportList extends Component {
                     spellCheck: true,
                     repeat: false,
                     playerClick: true,
-                    index: null
+                    index: null, 
+                    cursor: 0
                 })
             }
 
@@ -78,9 +83,21 @@ class SportList extends Component {
         if (e.key === 'Escape') {
             this.setState({
                 index: null,
-                playerClick: true
+                playerClick: true, 
+                input: ''
             })
         }
+        if (e.key === 'ArrowUp' && this.state.cursor > 0) {
+            this.setState( prevState => ({
+              cursor: prevState.cursor - 1
+            }))
+          } if ((e.key === 'ArrowDown' || e.key === 'Tab') && this.state.cursor < list.length - 1) {
+            e.preventDefault()
+            this.setState( prevState => ({
+              cursor: prevState.cursor + 1
+            }))
+          }
+          console.log(this.state.cursor)
     }
 
     inputChange(e) {
@@ -158,6 +175,7 @@ class SportList extends Component {
                 sportName={this.props.title}
                 repeat={this.state.repeat}
                 userData={this.props.userPlayers}
+                cursor={this.state.cursor}
             />
         return (
             <div className="list-container">
