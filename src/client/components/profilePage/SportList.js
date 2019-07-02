@@ -60,7 +60,7 @@ class SportList extends Component {
                     spellCheck: true,
                     repeat: false,
                     playerClick: true,
-                    index: null, 
+                    index: null,
                     cursor: 0
                 })
             }
@@ -83,21 +83,28 @@ class SportList extends Component {
         if (e.key === 'Escape') {
             this.setState({
                 index: null,
-                playerClick: true, 
-                input: ''
+                playerClick: true,
+                input: '',
+                cursor: 0
             })
         }
         if (e.key === 'ArrowUp' && this.state.cursor > 0) {
-            this.setState( prevState => ({
-              cursor: prevState.cursor - 1
+            this.setState(prevState => ({
+                cursor: prevState.cursor - 1
             }))
-          } if ((e.key === 'ArrowDown' || e.key === 'Tab') && this.state.cursor < list.length - 1) {
+        } 
+        if ((e.key === 'ArrowDown' || e.key === 'Tab') && this.state.cursor < list.length - 1) {
             e.preventDefault()
-            this.setState( prevState => ({
-              cursor: prevState.cursor + 1
+            this.setState(prevState => ({
+                cursor: prevState.cursor + 1
             }))
-          }
-          console.log(this.state.cursor)
+        } 
+        if (e.key === 'Tab' && this.state.cursor === list.length - 1) {
+            this.setState(({
+                cursor: 0,
+                input: ''
+            }))
+        }
     }
 
     inputChange(e) {
@@ -118,7 +125,7 @@ class SportList extends Component {
             this.props.sportList(this.props.user)
         }
         this.props.userPlayers.splice(index, 1)
-        
+
         this.setState({
             sport: this.props.userPlayers,
             index: null,
@@ -144,7 +151,8 @@ class SportList extends Component {
                 searchList: null,
                 repeat: false,
                 playerClick: true,
-                index: null
+                index: null,
+                cursor: 0
             })
         } else {
             this.setState({

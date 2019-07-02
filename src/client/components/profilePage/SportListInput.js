@@ -23,7 +23,7 @@ class SportListInput extends Component {
                 .map((player, index) =>
                     <li
                         key={index}
-                        className={this.props.cursor === index ? 'active' : null}
+                        className={this.props.cursor === index ? 'tab' : null}
                         onClick={() => this.props.listClick(player.player)}>
                         
                         {player.player}
