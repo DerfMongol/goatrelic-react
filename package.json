@@ -9,7 +9,7 @@
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
     "start": "npm-run-all --parallel start:*",
-    "start:server": "node build/bundle.js",
+    "start:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "start:build-server": "webpack --config webpack.server.js",
     "start:build-client": "webpack --config webpack.client.js"
   },
@@ -36,6 +36,7 @@
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.0",
     "normalize.css": "^8.0.1",
     "npm-run-all": "4.1.5",
     "prop-types": "^15.7.2",
@@ -53,6 +54,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.2",
     "webpack-merge": "4.2.1",
     "webpack-node-externals": "1.7.2"
@@ -60,8 +62,6 @@
   "devDependencies": {
     "babel-plugin-css-modules-transform": "^1.6.2",
     "mini-css-extract-plugin": "^0.6.0",
-    "nodemon": "^1.19.0",
-    "postcss": "^7.0.17",
-    "webpack-cli": "^3.3.4"
+    "postcss": "^7.0.17" 
   }
 }
