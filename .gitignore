@@ -1,6 +1,6 @@
 /node_modules
 /package-lock.json
-/public/bundle.js
-/build/bundle.js
-/public/bundle.js.map
-/public/style.css
+# /public/bundle.js
+# /build/bundle.js
+# /public/bundle.js.map
+# /public/style.css
