@@ -38476,7 +38476,7 @@ function renderRoutes(routes, extraProps, switchProps) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44356,7 +44356,9 @@ var get = function get(path, type) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return api.get(path);
+                return api.get(path, {
+                  withCredentials: true
+                });
 
               case 2:
                 res = _context.sent;
