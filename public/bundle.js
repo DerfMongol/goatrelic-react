@@ -44123,10 +44123,49 @@ module.exports = "/images/23ec7baf536d94ac44d411bea35af3ec.png";
 
 /***/ }),
 
-/***/ "./src/client/App.js":
-/*!***************************!*\
-  !*** ./src/client/App.js ***!
-  \***************************/
+/***/ "./src/client/Routes.js":
+/*!******************************!*\
+  !*** ./src/client/Routes.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Start__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Start */ "./src/client/Start.js");
+/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./src/client/pages/Home.js");
+/* harmony import */ var _pages_CriticPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/CriticPage */ "./src/client/pages/CriticPage.js");
+/* harmony import */ var _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/ProfilePage */ "./src/client/pages/ProfilePage.js");
+/* harmony import */ var _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/NotFoundPage */ "./src/client/pages/NotFoundPage.js");
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([_objectSpread({}, _Start__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  routes: [_objectSpread({}, _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    exact: true,
+    path: '/'
+  }), _objectSpread({}, _pages_CriticPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    path: ['/nba', '/nba/critics', '/nba/players', '/nba/fans', '/nhl', '/nhl/critics', '/nhl/players', '/nhl/fans', '/pga', '/pga/critics', '/pga/players', '/pga/fans']
+  }), _objectSpread({}, _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    path: '/profile'
+  }), _objectSpread({}, _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_5__["default"])]
+})]);
+
+/***/ }),
+
+/***/ "./src/client/Start.js":
+/*!*****************************!*\
+  !*** ./src/client/Start.js ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -44146,7 +44185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var App = function App(_ref) {
+var Start = function Start(_ref) {
   var route = _ref.route;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), Object(react_router_config__WEBPACK_IMPORTED_MODULE_1__["renderRoutes"])(route.routes));
 };
@@ -44157,47 +44196,8 @@ var loadData = function loadData(store) {
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   loadData: loadData,
-  component: App
+  component: Start
 });
-
-/***/ }),
-
-/***/ "./src/client/Routes.js":
-/*!******************************!*\
-  !*** ./src/client/Routes.js ***!
-  \******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/client/App.js");
-/* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home */ "./src/client/pages/Home.js");
-/* harmony import */ var _pages_CriticPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/CriticPage */ "./src/client/pages/CriticPage.js");
-/* harmony import */ var _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/ProfilePage */ "./src/client/pages/ProfilePage.js");
-/* harmony import */ var _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/NotFoundPage */ "./src/client/pages/NotFoundPage.js");
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ([_objectSpread({}, _App__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  routes: [_objectSpread({}, _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    exact: true,
-    path: '/'
-  }), _objectSpread({}, _pages_CriticPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    path: ['/nba', '/nba/critics', '/nba/players', '/nba/fans', '/nhl', '/nhl/critics', '/nhl/players', '/nhl/fans', '/pga', '/pga/critics', '/pga/players', '/pga/fans']
-  }), _objectSpread({}, _pages_ProfilePage__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    path: '/profile'
-  }), _objectSpread({}, _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_5__["default"])]
-})]);
 
 /***/ }),
 
