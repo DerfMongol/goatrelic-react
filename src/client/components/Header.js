@@ -5,10 +5,10 @@ import { withRouter } from 'react-router'
 
 const Header = (props) => {
 
-    const authButton = props.user.data ? (
+    const authButton = props.user.profile ? (
         <div className='auth'>
             <Link to="/profile">
-                <img src={props.user.data.thumbnail}/>
+                <img src={props.user.profile.thumbnail}/>
             </Link>
             <div className='log-padding'>
                 <a href="/api/auth/logout" >Logout</a>
