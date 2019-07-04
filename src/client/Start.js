@@ -6,7 +6,7 @@ import { getNbaAllTime, getNhlAllTime, getPgaAllTime } from './actions/allTime-a
 import { getNbaCritic, getNhlCritic, getPgaCritic } from './actions/critic-actions'
 import { fetchCurrentUser, fetchAllUsers } from './actions/user-actions'
 
-const App = ({ route }) => (
+const Start = ({ route }) => (
     <div>
         <Header />
         {renderRoutes(route.routes)}
@@ -31,7 +31,7 @@ const loadData = (store) => {
 
 export default {
     loadData,
-    component: App
+    component: Start
 }
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import App from 'App'
+import Start from './Start'
 import Home from './pages/Home'
 import CriticPage from './pages/CriticPage'
 import ProfilePage from './pages/ProfilePage'
@@ -8,7 +8,7 @@ import NotFoundPage from './pages/NotFoundPage'
 
 export default [
     {
-        ...App,
+        ...Start,
         routes: [
             {
                 ...Home,
