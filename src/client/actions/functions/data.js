@@ -4,7 +4,7 @@ const receiveTreeData = (data, type) => ({
 })
 
 const get = (path, type) => async (dispatch, getState, api) => {
-    const res = await api.get(path)
+    const res = await api.get(path, {withCredentials: true})
     dispatch(receiveTreeData(res.data, type))
 }
 
