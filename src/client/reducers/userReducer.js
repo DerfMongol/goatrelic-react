@@ -5,8 +5,7 @@ const initialState = {
         nhl: [],
         nba: [], 
         pga: [],
-        users: [],
-        profile: []
+        users: []
     }
     
 }
@@ -16,7 +15,7 @@ export default (state = initialState, action) => {
         case FETCH_CURRENT_USER: 
             return {
                 ...state,
-                profile: action.data || false
+                data: action.data || false
             } 
         case POST_SPORT_LIST: 
             return {
