@@ -1,6 +1,6 @@
 import React from 'react'
 
-import App from './App'
+import App from 'App'
 import Home from './pages/Home'
 import CriticPage from './pages/CriticPage'
 import ProfilePage from './pages/ProfilePage'
