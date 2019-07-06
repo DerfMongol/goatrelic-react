@@ -6,6 +6,7 @@ import reducers from '../client/reducers'
 
 export default (req) => {
 
+    axios.defaults.withCredentials = true
     const axiosInstance = axios.create({
         baseURL: 'https://salty-thicket-36195.herokuapp.com',
         headers: { cookie: req.get('cookie') || '' }

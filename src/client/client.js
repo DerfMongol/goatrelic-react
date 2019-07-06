@@ -14,6 +14,8 @@ import axios from 'axios'
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
+axios.defaults.withCredentials = true
+
 const axiosInstance = axios.create({
     baseURL: '/api'
 })
