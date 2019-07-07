@@ -8,7 +8,14 @@ import createStore from './helpers/createStore'
 
 const app = express()
 
-app.use('/api', proxy('http://salty-thicket-36195.herokuapp.com'))
+
+
+app.use('/api', proxy('http://salty-thicket-36195.herokuapp.com', {
+    proxyReqOptDecorator(opts) {
+        opts.headers['x-forwarded-host'] = 'http://goatrelic.herokuapp.com'
+        return opts
+    }
+}))
 
 app.use(express.static('public'))
 
