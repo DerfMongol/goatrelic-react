@@ -8,8 +8,7 @@ export default (req) => {
 
     const axiosInstance = axios.create({
         baseURL: 'http://salty-thicket-36195.herokuapp.com',
-        headers: { cookie: req.get('cookie') || '' },
-        withCredentials: true
+        headers: { cookie: req.get('cookie') || '' }
     })
 
     const store = createStore(

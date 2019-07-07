@@ -15,8 +15,7 @@ import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
 const axiosInstance = axios.create({
-    baseURL: '/api',
-    withCredentials: true
+    baseURL: '/api'
 })
 
 const store = createStore(
@@ -24,7 +23,7 @@ const store = createStore(
     window.INITIAL_STATE,
     compose(
         applyMiddleware(thunk.withExtraArgument(axiosInstance)),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
 )
 
