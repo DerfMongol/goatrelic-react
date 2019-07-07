@@ -9,7 +9,7 @@ const PlayerListCat = (props) => (
                 if (props.title === "Rank") {
                     if (index > 0) {
                         let count = index
-                        while(props.allTime[count - 1].lists === player.lists && props.allTime[count - 1].avg === player.avg && count > 0) {
+                        while(count > 0 && props.allTime[count - 1].lists === player.lists && props.allTime[count - 1].avg === player.avg ) {
                             count--
                         }
                         if (count !== index) {
