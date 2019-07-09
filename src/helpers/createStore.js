@@ -8,7 +8,7 @@ import reducers from '../client/reducers'
 export default (req) => {
 
     const axiosInstance = axios.create({
-        baseURL: `http://${config.backDomain}`,
+        baseURL: 'http://salty-thicket-36195.herokuapp.com',
         headers: { cookie: req.get('cookie') || '' }
     })
 

@@ -10,7 +10,7 @@ import config from './config/config'
 
 const app = express()
 
-app.use('/api', proxy(`http://${config.backDomain}`, {
+app.use('/api', proxy(`http://salty-thicket-36195.herokuapp.com`, {
     proxyReqOptDecorator(opts) {
         opts.headers['x-forwarded-host'] = config.frontDomain
         return opts
