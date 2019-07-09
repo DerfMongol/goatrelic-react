@@ -9,7 +9,7 @@ import createStore from './helpers/createStore'
 import config from './config/config'
 
 const app = express()
-
+console.log(config)
 app.use('/api', proxy(`http://${config.backDomain}`, {
     proxyReqOptDecorator(opts) {
         opts.headers['x-forwarded-host'] = config.frontDomain
