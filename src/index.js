@@ -2,15 +2,17 @@ import 'babel-polyfill'
 import express from 'express'
 import { matchRoutes } from 'react-router-config'
 import proxy from 'express-http-proxy'
+
 import Routes from './client/Routes'
 import renderer from './helpers/renderer'
 import createStore from './helpers/createStore'
+import config from './config/config'
 
 const app = express()
 
-app.use('/api', proxy('http://salty-thicket-36195.herokuapp.com', {
+app.use('/api', proxy(`http://${config.backDomain}`, {
     proxyReqOptDecorator(opts) {
-        opts.headers['x-forwarded-host'] = 'goatrelic.herokuapp.com'
+        opts.headers['x-forwarded-host'] = config.frontDomain
         return opts
     }
 }))

@@ -10,6 +10,24 @@ import { fetchCurrentUser, fetchAllUsers } from './actions/user-actions'
 class Start extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            phoneMenu: false,
+            backDrop: null
+        }
+        this.phoneMenuClick = this.phoneMenuClick.bind(this)
+        this.onBackDropClick = this.onBackDropClick.bind(this)
+    }
+    phoneMenuClick() {
+        this.setState(({
+            phoneMenu: true,
+            backDrop: 'backdrop'
+        }))
+    }
+    onBackDropClick() {
+        this.setState({
+            phoneMenu: false,
+            backDrop: null
+        })
     }
 
     componentDidMount() {
@@ -24,8 +42,9 @@ class Start extends Component {
     }
     render() {
         return (
-            <div>
-                <Header />
+            <div >
+                <div className={this.state.backDrop} onClick={this.onBackDropClick}></div>
+                <Header phoneMenuClick={this.phoneMenuClick} phoneMenu={this.state.phoneMenu} />
                 {renderRoutes(this.props.route.routes)}
             </div>
         )

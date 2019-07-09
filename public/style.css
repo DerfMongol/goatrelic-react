@@ -337,9 +337,19 @@ body {
   background: white;
   top: 0; }
 
+.backdrop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  /* vmin and vmax are based off the heights and widths of the viewport */
+  background: rgba(0, 0, 0, 0.5); }
+
 .toggle-button {
   margin-left: 1.25rem;
-  width: 3rem;
+  width: 3.5rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -352,14 +362,43 @@ body {
 
 .toggle-button__bar {
   width: 100%;
-  height: 0.2rem;
+  height: 0.1rem;
   background: black;
   display: block;
   margin: 0.6rem 0; }
 
-.logo {
+.mobile-nav {
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 25%;
+  height: 100vh; }
+
+.mobile-nav__items {
+  width: 90%;
+  height: 100%;
+  list-style: none;
+  margin: 10% auto;
+  padding: 0;
+  text-align: center; }
+
+.mobile-nav__item {
+  margin: 1rem 0; }
+
+.mobile-nav__item a {
+  font-size: 1.5rem;
+  color: white;
   text-decoration: none;
-  order: 2; }
+  padding: .1875rem .1875rem; }
+
+.mobile-nav__item a:hover,
+.mobile-nav__item a:active {
+  color: white;
+  background: gold;
+  border-radius: 10%;
+  cursor: pointer; }
 
 .brand {
   display: none;
@@ -369,7 +408,12 @@ body {
   font-size: 26px;
   margin: auto 0; }
 
-.logo, .logo a, .goat {
+.logo {
+  display: none; }
+
+.logo,
+.logo a,
+.goat {
   align-items: center; }
 
 .goat {
@@ -388,7 +432,30 @@ body {
   padding: .3rem .3rem 0.9rem .3rem; }
 
 .auth {
-  display: none; }
+  display: flex;
+  order: 2;
+  margin: auto 0;
+  padding-right: 3%;
+  list-style: none;
+  align-items: center;
+  min-width: 150px;
+  justify-content: right;
+  height: 35px; }
+
+.auth img:hover {
+  border: 2px solid black; }
+
+.auth img {
+  width: 35px;
+  border: 2px solid white;
+  padding: 0; }
+
+.log-padding a {
+  padding: .3rem .3rem 0.8rem .3rem;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none; }
 
 .dropbtn {
   color: black;
@@ -414,6 +481,7 @@ li.dropdown {
     padding: 0; }
   .logo {
     display: flex;
+    text-decoration: none;
     justify-self: flex-start; }
   .brand {
     display: inline;
@@ -434,27 +502,11 @@ li.dropdown {
     list-style: none;
     text-align: left; }
   .auth {
-    display: flex;
-    order: 4;
-    margin: auto 0;
-    padding-right: 3%;
-    list-style: none;
-    align-items: center;
-    min-width: 150px;
-    justify-content: right;
-    height: 35px; }
-  .log-padding a {
-    padding: .3rem .3rem 0.8rem .3rem;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none; }
-  .auth img:hover {
-    border: 2px solid black; }
-  .auth img {
-    width: 35px;
-    border: 2px solid white;
-    padding: 0; } }
+    order: 4; }
+  .mobile-nav {
+    display: none; }
+  .backdrop {
+    display: none; } }
 
 .bigWord {
   margin-top: 100px;
@@ -602,26 +654,28 @@ li.dropdown {
     margin: 0 3.5%; } }
 
 .list-header {
-  width: 100%;
-  display: flex;
-  position: fixed;
-  z-index: 10;
-  color: gold;
-  background: black;
-  top: 43.2px;
-  height: 40px; }
+  display: none; }
 
-.list-header-title {
-  order: 1;
-  margin: 0 0.5rem;
-  color: gold;
-  text-decoration: none;
-  padding: .3rem .6rem; }
-
-.list-header-title:hover,
-.list-header-active {
-  cursor: pointer;
-  border-bottom: 2px solid white; }
+@media (min-width: 40rem) {
+  .list-header {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    color: gold;
+    background: black;
+    top: 43.2px;
+    height: 40px; }
+  .list-header-title {
+    order: 1;
+    margin: 0 0.5rem;
+    color: gold;
+    text-decoration: none;
+    padding: .3rem .6rem; }
+  .list-header-title:hover,
+  .list-header-active {
+    cursor: pointer;
+    border-bottom: 2px solid white; } }
 
 .user {
   color: white; }
@@ -629,7 +683,8 @@ li.dropdown {
 .lists-container {
   display: flex;
   margin-top: 40px;
-  justify-content: flex-start; }
+  justify-content: flex-start;
+  flex-wrap: wrap; }
 
 .list-container {
   display: flex;
@@ -637,8 +692,8 @@ li.dropdown {
   width: 20%;
   font-size: 1rem;
   justify-content: space-between;
-  margin: 80px auto;
-  min-width: 15.7rem;
+  margin: 50px auto;
+  min-width: 16.5rem;
   height: 50%;
   color: black;
   background: black;
@@ -700,7 +755,7 @@ li.dropdown {
   cursor: pointer; }
 
 .bottom-list input {
-  padding: 5px 0; }
+  padding: 5px 10px; }
 
 .error {
   color: red; }

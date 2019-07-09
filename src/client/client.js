@@ -36,7 +36,7 @@ ReactDOM.hydrate(
         <BrowserRouter>
             <div>
                 {renderRoutes(Routes)}
-            </div>  
+            </div>
         </BrowserRouter>
     </Provider>
     , document.querySelector('#app')
