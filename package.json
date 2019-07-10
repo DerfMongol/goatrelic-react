@@ -8,8 +8,8 @@
     "dev:server": "API_URL=localhost:3001 SSR_URL=localhost:3000 nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build-server": "webpack --config webpack.server.dev.js --watch",
     "dev:build-client": "webpack --config webpack.client.dev.js --watch",
-    "start": " npm-run-all --parallel prod:*",
-    "prod:server": " API_URL=salty-thicket-36195.herokuapp.com SSR_URL=goatrelic.herokuapp.com nodemon --watch build --exec \"node build/bundle.js\"",
+    "start": "npm-run-all --parallel prod:*",
+    "prod:server": "API_URL=salty-thicket-36195.herokuapp.com SSR_URL=goatrelic.herokuapp.com nodemon --watch build --exec \"node build/bundle.js\"",
     "prod:build-server": "webpack --config webpack.server.prod.js --watch",
     "prod:build-client": "webpack --config webpack.client.prod.js --watch"
   },
