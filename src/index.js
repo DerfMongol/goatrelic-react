@@ -9,7 +9,8 @@ import createStore from './helpers/createStore'
 
 const app = express()
 
-console.log(process.env)
+console.log(process.env.API_URL)
+console.log(process.env.SSR_URL)
 
 app.use('/api', proxy(`http://${process.env.API_URL}`, {
     proxyReqOptDecorator(opts) {
