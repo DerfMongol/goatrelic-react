@@ -16,7 +16,12 @@ const config = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'build')
     },
-    externals: [webpackNodeExternals()]
+    externals: [webpackNodeExternals()],
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        host: 'localhost',
+        port: 3000
+    }
 }
 
 module.exports = merge(baseConfig, config)
