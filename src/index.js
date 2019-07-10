@@ -6,13 +6,14 @@ import proxy from 'express-http-proxy'
 import Routes from './client/Routes'
 import renderer from './helpers/renderer'
 import createStore from './helpers/createStore'
-import config from './config/config'
 
 const app = express()
 
-app.use('/api', proxy(`http://salty-thicket-36195.herokuapp.com`, {
+console.log(process.env)
+
+app.use('/api', proxy(`http://${process.env.API_URL}`, {
     proxyReqOptDecorator(opts) {
-        opts.headers['x-forwarded-host'] = config.frontDomain
+        opts.headers['x-forwarded-host'] = process.env.SSR_URL
         return opts
     }
 }))

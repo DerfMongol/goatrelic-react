@@ -1,8 +1,11 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack')
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
+const fs = require('fs')
 
 module.exports = {
-    mode: 'development',
+
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -25,26 +28,24 @@ module.exports = {
                 { loader: 'sass-loader', options: { sourceMap: true } }
             ],
         }, {
-            test: /\.(png|jp(e*)g|svg)$/,  
+            test: /\.(png|jp(e*)g|svg)$/,
             use: [{
                 loader: 'url-loader',
-                options: { 
+                options: {
                     limit: 8000,
                     outputPath: '/images',
                     publicPath: '/images'
-                } 
+                }
             }]
-}]
+        }]
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: "style.css"
+        }),
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(dotenv.parsed)
         })
 
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        host: 'localhost',
-        port: 3000
-    }
+    ]
 }
