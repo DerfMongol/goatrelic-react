@@ -2,6 +2,7 @@ import 'babel-polyfill'
 import express from 'express'
 import { matchRoutes } from 'react-router-config'
 import proxy from 'express-http-proxy'
+import axios from 'axios'
 
 import Routes from './client/Routes'
 import renderer from './helpers/renderer'

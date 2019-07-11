@@ -3,7 +3,13 @@ import React, { Component } from 'react'
 const CriticProfile = (props) => (
     <div className='critic-profile'>
         <div className="critic-header">
-            <img src={props.pic} />
+        {
+            this.props.location.pathname.includes('fans') ?
+                <img src={props.pic} /> : null
+            
+        }
+        
+           
             <div className='critic-name'>{props.name}</div>
         </div>
         <div className='critic-info'>{props.job}</div>
