@@ -15,7 +15,8 @@ class Start extends Component {
             backDrop: null
         }
         this.phoneMenuClick = this.phoneMenuClick.bind(this)
-        this.onBackDropClick = this.onBackDropClick.bind(this)
+        this.exitMenuClick = this.exitMenuClick.bind(this)
+       
     }
     phoneMenuClick() {
         this.setState(({
@@ -23,13 +24,13 @@ class Start extends Component {
             backDrop: 'backdrop'
         }))
     }
-    onBackDropClick() {
+    exitMenuClick() {
         this.setState({
             phoneMenu: false,
             backDrop: null
         })
     }
-
+    
     componentDidMount() {
         this.props.getNbaAllTime()
         this.props.getNhlAllTime()
@@ -43,8 +44,8 @@ class Start extends Component {
     render() {
         return (
             <div >
-                <div className={this.state.backDrop} onClick={this.onBackDropClick}></div>
-                <Header phoneMenuClick={this.phoneMenuClick} phoneMenu={this.state.phoneMenu} />
+                <div className={this.state.backDrop} onClick={this.exitMenuClick}></div>
+                <Header phoneMenuClick={this.phoneMenuClick} phoneMenu={this.state.phoneMenu} mobileSportClick={this.exitMenuClick} />
                 {renderRoutes(this.props.route.routes)}
             </div>
         )

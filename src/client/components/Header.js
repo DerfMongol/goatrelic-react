@@ -28,24 +28,6 @@ class Header extends Component {
                 </div>
 
             )
-        const phoneMenu = this.props.phoneMenu ? (
-            <nav className="mobile-nav">
-                <ul className="mobile-nav__items">
-                    <Link to="/">
-                        <img className="goat" src={require("../../../public/images/Black_Goat.png")} />
-                    </Link>
-                    <li>
-                        <NavLink to={`/nba/${subRoute}`} className="dropbtn" activeClassName="active">NBA</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={`/nhl/${subRoute}`} className="dropbtn" activeClassName="active">NHL</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={`/pga/${subRoute}`} className="dropbtn" activeClassName="active">PGA</NavLink>
-                    </li>
-                </ul>
-            </nav>) : null
-
         let subRoute
         if (this.props.location.pathname.includes('critics')) {
             subRoute = 'critics'
@@ -56,6 +38,25 @@ class Header extends Component {
         } else {
             subRoute = 'critics'
         }
+        const phoneMenu = this.props.phoneMenu ? (
+            <nav className="mobile-nav">
+                <ul className="mobile-nav__items">
+                    <Link to="/">
+                        <img className="goat-mobile" src={require("../../../public/images/Black_Goat.png")} />
+                    </Link>
+                    <li>
+                        <NavLink to={`/nba/${subRoute}`} className="mobile-nav__item-link" activeClassName="active-mobile" onClick={this.props.mobileSportClick}>NBA</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={`/nhl/${subRoute}`} className="mobile-nav__item-link" activeClassName="active-mobile" onClick={this.props.mobileSportClick}>NHL</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={`/pga/${subRoute}`} className="mobile-nav__item-link" activeClassName="active-mobile" onClick={this.props.mobileSportClick}>PGA</NavLink>
+                    </li>
+                </ul>
+            </nav>) : null
+
+
         return (
             <div>
                 {phoneMenu}

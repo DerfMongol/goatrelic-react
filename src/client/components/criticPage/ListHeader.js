@@ -6,7 +6,7 @@ const ListHeader = (props) => (
     <div className='list-header'>
 
 
-        <nav className='main'>
+        <nav className='main-list-header'>
             <ul className='main-items'>
                 <li>
                     <NavLink 

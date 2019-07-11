@@ -1,6 +1,7 @@
 .list {
+    font-size: 12px;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         'head head'
         'statsHead statsHead'
         'stats stats'
@@ -13,7 +14,6 @@
     // font-family: Vidaloka, serif;
     background: rgba(202, 138, 0, 0.9);
     font-weight: bold;
-    font-size: $header-font;
     margin: auto;
     margin-top: 2rem;
     width: 100%;
@@ -30,7 +30,7 @@
     width: 100%;
     // border-left: .0625rem black solid;
     // border-right: .0625rem black solid;
-    background:rgb(139, 134, 125);
+    background: rgb(139, 134, 125);
     margin: -30px 0 0 0;
 }
 
@@ -53,7 +53,6 @@
     overflow: auto;
     height: 20.7rem;
     background: $cum-white;
-    font-size: $stat-font;
     border-left: .0625rem black solid;
     border-right: .0625rem black solid;
 }
@@ -62,7 +61,6 @@
     grid-area: foot;
     font-weight: lighter;
     border-radius: 0 0 1rem 1rem;
-    font-size: $title-font;
     background: rgba(202, 138, 0, 0.9);
     margin: auto;
     width: 100%;
@@ -70,13 +68,24 @@
 }
 
 @media (min-width: 40rem) {
-    
+
+    .stat-head {
+        font-size: $header-font;
+    }
+
     .cats-banner {
         height: 30px;
     }
+
+    .all-time {
+        font-size: $stat-font;
+
+    }
+
+    .total-foot {
+        font-size: $title-font;
+
+    }
 }
 
-@media (min-width: 770px) {
-    
-    
-}
+@media (min-width: 770px) {}

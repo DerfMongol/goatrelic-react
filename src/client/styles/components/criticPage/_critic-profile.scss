@@ -7,17 +7,29 @@
     padding: 1rem;
     text-align: left;
     width: 35%;
-    min-width: 15.7rem;
+    min-width: 13rem;
     display: inline-block;
     border-radius: 15px;
-    font-size: $title-font;
 }
 
+.critic-header {
+    display: flex;
+}
+
+.critic-profile img {
+    order: 1;
+    width: 35px;
+    height: 35px;
+    border: 2px solid white;
+    padding: 0;
+}
+
+
 .critic-name {
-    margin: 0 0 0.3rem 0;
+    order: 2;
+    margin: 0 0 0.3rem 1rem;
     color: gold;
     text-decoration: underline;
-    font-size: $title-font;
 }
 
 .critic-info {
@@ -29,7 +41,6 @@
 .critic-stats {
     padding-left: 20%;
     font-weight: bold;
-    font-size: $stat-font;
 }
 
 .critic-foot {
@@ -48,6 +59,21 @@
 }
 
 @media (min-width: 40rem) {
+
+    .critic-foot {
+        font-size: 0.8rem;
+       
+    }
+
+    .critic-profile,
+    .critic-name{
+        font-size: $title-font;
+    }
+
+    .critic-stats,
+    .critic-stats {
+        font-size: $stat-font;
+    }
     
     .critic-profile {
         max-width: 21rem;

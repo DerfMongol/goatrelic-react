@@ -1,31 +1,29 @@
 
 .list-header {
-    display: none;
- }
+    width: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    color: gold;
+    background: rgb(0, 0, 0);
+    top: 43.2px;
+    height: 40px;
+}
+.list-header-title {
+    order: 1;
+    margin: 0 0.5rem;
+    color: gold;
+    text-decoration: none;
+    padding: .3rem .6rem;
+}
+
+.list-header-title:hover,
+.list-header-active {
+    cursor: pointer;
+    border-bottom: 2px solid white;
+}
 
 
 @media (min-width: 40rem) {
-    .list-header {
-        width: 100%;
-        display: flex;
-        position: fixed;
-        z-index: 10;
-        color: gold;
-        background: rgb(0, 0, 0);
-        top: 43.2px;
-        height: 40px;
-    }
-    .list-header-title {
-        order: 1;
-        margin: 0 0.5rem;
-        color: gold;
-        text-decoration: none;
-        padding: .3rem .6rem;
-    }
     
-    .list-header-title:hover,
-    .list-header-active {
-        cursor: pointer;
-        border-bottom: 2px solid white;
-    }
 }

@@ -319,7 +319,8 @@ body {
 .container {
   margin-top: 3.06rem;
   padding-top: 1.25rem;
-  text-align: center; }
+  text-align: center;
+  font-size: 12px; }
 
 @media (min-width: 40rem) {
   .container {
@@ -335,7 +336,8 @@ body {
   position: fixed;
   z-index: 10;
   background: white;
-  top: 0; }
+  top: 0;
+  font-size: 14px; }
 
 .backdrop {
   top: 0;
@@ -384,18 +386,22 @@ body {
   padding: 0;
   text-align: center; }
 
+.mobile-nav__items li {
+  margin: 20px 0; }
+
 .mobile-nav__item {
   margin: 1rem 0; }
 
-.mobile-nav__item a {
-  font-size: 1.5rem;
+.mobile-nav__item-link {
+  font-size: 1rem;
   color: white;
   text-decoration: none;
   padding: .1875rem .1875rem; }
 
-.mobile-nav__item a:hover,
-.mobile-nav__item a:active {
-  color: white;
+.mobile-nav__item-link:hover,
+.mobile-nav__item-link:active,
+.active-mobile {
+  color: black;
   background: gold;
   border-radius: 10%;
   cursor: pointer; }
@@ -405,7 +411,6 @@ body {
   color: black;
   text-decoration: none;
   font-weight: bold;
-  font-size: 26px;
   margin: auto 0; }
 
 .logo {
@@ -422,11 +427,30 @@ body {
   height: 2.7rem;
   background-size: contain; }
 
+.goat-mobile {
+  margin-bottom: 10px;
+  padding: 10px 20%;
+  border-bottom: 2px solid gold;
+  width: 2.7rem;
+  height: 2.7rem;
+  background-size: contain; }
+
 .main {
   display: none; }
 
-.main-item {
-  font-size: 16px; }
+.main-items {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+  text-align: left; }
+
+.main-list-header {
+  display: flex;
+  text-align: right;
+  width: 70%;
+  vertical-align: middle;
+  order: 3; }
 
 .main-item a {
   padding: .3rem .3rem 0.9rem .3rem; }
@@ -453,7 +477,6 @@ body {
 .log-padding a {
   padding: .3rem .3rem 0.8rem .3rem;
   color: black;
-  font-size: 20px;
   font-weight: bold;
   text-decoration: none; }
 
@@ -485,22 +508,20 @@ li.dropdown {
     justify-self: flex-start; }
   .brand {
     display: inline;
-    order: 2; }
+    order: 2;
+    font-size: 26px; }
   .main-item {
     order: 1;
-    padding: 0 3%; }
+    padding: 0 3%;
+    font-size: 16px; }
   .main {
     display: flex;
     text-align: right;
     width: 70%;
     vertical-align: middle;
     order: 3; }
-  .main-items {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    list-style: none;
-    text-align: left; }
+  .log-padding a {
+    font-size: 20px; }
   .auth {
     order: 4; }
   .mobile-nav {
@@ -528,16 +549,25 @@ li.dropdown {
   padding: 1rem;
   text-align: left;
   width: 35%;
-  min-width: 15.7rem;
+  min-width: 13rem;
   display: inline-block;
-  border-radius: 15px;
-  font-size: 20px; }
+  border-radius: 15px; }
+
+.critic-header {
+  display: flex; }
+
+.critic-profile img {
+  order: 1;
+  width: 35px;
+  height: 35px;
+  border: 2px solid white;
+  padding: 0; }
 
 .critic-name {
-  margin: 0 0 0.3rem 0;
+  order: 2;
+  margin: 0 0 0.3rem 1rem;
   color: gold;
-  text-decoration: underline;
-  font-size: 20px; }
+  text-decoration: underline; }
 
 .critic-info {
   color: #817b7b;
@@ -546,8 +576,7 @@ li.dropdown {
 
 .critic-stats {
   padding-left: 20%;
-  font-weight: bold;
-  font-size: 16px; }
+  font-weight: bold; }
 
 .critic-foot {
   color: #817b7b;
@@ -563,12 +592,21 @@ li.dropdown {
   padding: 0.125rem 0.125rem; }
 
 @media (min-width: 40rem) {
+  .critic-foot {
+    font-size: 0.8rem; }
+  .critic-profile,
+  .critic-name {
+    font-size: 20px; }
+  .critic-stats,
+  .critic-stats {
+    font-size: 16px; }
   .critic-profile {
     max-width: 21rem;
     margin: 0.5rem 0.2rem;
     vertical-align: top; } }
 
 .list {
+  font-size: 12px;
   display: grid;
   grid-template-areas: 'head head' 'statsHead statsHead' 'stats stats' 'foot foot';
   grid-template-columns: 7.5rem 3fr; }
@@ -577,7 +615,6 @@ li.dropdown {
   grid-area: head;
   background: rgba(202, 138, 0, 0.9);
   font-weight: bold;
-  font-size: 26px;
   margin: auto;
   margin-top: 2rem;
   width: 100%;
@@ -601,7 +638,6 @@ li.dropdown {
   overflow: auto;
   height: 20.7rem;
   background: rgba(255, 255, 255, 0.8);
-  font-size: 16px;
   border-left: .0625rem black solid;
   border-right: .0625rem black solid; }
 
@@ -609,15 +645,20 @@ li.dropdown {
   grid-area: foot;
   font-weight: lighter;
   border-radius: 0 0 1rem 1rem;
-  font-size: 20px;
   background: rgba(202, 138, 0, 0.9);
   margin: auto;
   width: 100%;
   border: .0625rem black solid; }
 
 @media (min-width: 40rem) {
+  .stat-head {
+    font-size: 26px; }
   .cats-banner {
-    height: 30px; } }
+    height: 30px; }
+  .all-time {
+    font-size: 16px; }
+  .total-foot {
+    font-size: 20px; } }
 
 .trophies {
   height: 5rem;
@@ -636,7 +677,6 @@ li.dropdown {
   position: sticky;
   top: 0;
   padding: 5px 0 15px 0;
-  font-size: 20px;
   /* font-weight: bold; */
   text-align: center; }
 
@@ -646,6 +686,8 @@ li.dropdown {
 @media (min-width: 40rem) {
   .cats {
     margin: 0 2%; }
+  .catshead {
+    font-size: 20px; }
   .player-list {
     font-size: 16px; } }
 
@@ -654,31 +696,35 @@ li.dropdown {
     margin: 0 3.5%; } }
 
 .list-header {
-  display: none; }
+  width: 100%;
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  color: gold;
+  background: black;
+  top: 43.2px;
+  height: 40px; }
 
-@media (min-width: 40rem) {
-  .list-header {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    z-index: 10;
-    color: gold;
-    background: black;
-    top: 43.2px;
-    height: 40px; }
-  .list-header-title {
-    order: 1;
-    margin: 0 0.5rem;
-    color: gold;
-    text-decoration: none;
-    padding: .3rem .6rem; }
-  .list-header-title:hover,
-  .list-header-active {
-    cursor: pointer;
-    border-bottom: 2px solid white; } }
+.list-header-title {
+  order: 1;
+  margin: 0 0.5rem;
+  color: gold;
+  text-decoration: none;
+  padding: .3rem .6rem; }
+
+.list-header-title:hover,
+.list-header-active {
+  cursor: pointer;
+  border-bottom: 2px solid white; }
 
 .user {
-  color: white; }
+  color: white;
+  font-size: 18px; }
+
+@media (min-width: 40rem) {
+  .user {
+    color: white;
+    font-size: 26px; } }
 
 .lists-container {
   display: flex;
@@ -690,7 +736,6 @@ li.dropdown {
   display: flex;
   flex-direction: column;
   width: 20%;
-  font-size: 1rem;
   justify-content: space-between;
   margin: 50px auto;
   min-width: 16.5rem;
@@ -706,8 +751,7 @@ li.dropdown {
   text-align: left;
   margin: 0 0 0.3rem 0;
   color: gold;
-  text-decoration: underline;
-  font-size: 1.5rem; }
+  text-decoration: underline; }
 
 .list-container ul {
   order: 2;
@@ -735,6 +779,12 @@ li.dropdown {
   cursor: pointer;
   background: #adaaaa;
   color: black; }
+
+@media (min-width: 40rem) {
+  .list-container {
+    font-size: 1rem; }
+  .title-list {
+    font-size: 1.5rem; } }
 
 .bottom-list {
   order: 3; }

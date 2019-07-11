@@ -1,3 +1,16 @@
 .user {
     color: white;
+    font-size: 18px;
+}
+
+@media (min-width: 40rem) {
+    .user {
+        color: white;
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 770px) {
+    
+    
 }

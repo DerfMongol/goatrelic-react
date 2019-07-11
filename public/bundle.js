@@ -38476,7 +38476,7 @@ function renderRoutes(routes, extraProps, switchProps) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44247,7 +44247,7 @@ function (_Component) {
       backDrop: null
     };
     _this.phoneMenuClick = _this.phoneMenuClick.bind(_assertThisInitialized(_this));
-    _this.onBackDropClick = _this.onBackDropClick.bind(_assertThisInitialized(_this));
+    _this.exitMenuClick = _this.exitMenuClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -44260,8 +44260,8 @@ function (_Component) {
       });
     }
   }, {
-    key: "onBackDropClick",
-    value: function onBackDropClick() {
+    key: "exitMenuClick",
+    value: function exitMenuClick() {
       this.setState({
         phoneMenu: false,
         backDrop: null
@@ -44284,10 +44284,11 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: this.state.backDrop,
-        onClick: this.onBackDropClick
+        onClick: this.exitMenuClick
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
         phoneMenuClick: this.phoneMenuClick,
-        phoneMenu: this.state.phoneMenu
+        phoneMenu: this.state.phoneMenu,
+        mobileSportClick: this.exitMenuClick
       }), Object(react_router_config__WEBPACK_IMPORTED_MODULE_1__["renderRoutes"])(this.props.route.routes));
     }
   }]);
@@ -44831,28 +44832,6 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/api/auth/google"
       }, "Login")));
-      var phoneMenu = this.props.phoneMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "mobile-nav"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "mobile-nav__items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "goat",
-        src: __webpack_require__(/*! ../../../public/images/Black_Goat.png */ "./public/images/Black_Goat.png")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/nba/".concat(subRoute),
-        className: "dropbtn",
-        activeClassName: "active"
-      }, "NBA")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/nhl/".concat(subRoute),
-        className: "dropbtn",
-        activeClassName: "active"
-      }, "NHL")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-        to: "/pga/".concat(subRoute),
-        className: "dropbtn",
-        activeClassName: "active"
-      }, "PGA")))) : null;
       var subRoute;
 
       if (this.props.location.pathname.includes('critics')) {
@@ -44865,6 +44844,31 @@ function (_Component) {
         subRoute = 'critics';
       }
 
+      var phoneMenu = this.props.phoneMenu ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        className: "mobile-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "mobile-nav__items"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "goat-mobile",
+        src: __webpack_require__(/*! ../../../public/images/Black_Goat.png */ "./public/images/Black_Goat.png")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        to: "/nba/".concat(subRoute),
+        className: "mobile-nav__item-link",
+        activeClassName: "active-mobile",
+        onClick: this.props.mobileSportClick
+      }, "NBA")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        to: "/nhl/".concat(subRoute),
+        className: "mobile-nav__item-link",
+        activeClassName: "active-mobile",
+        onClick: this.props.mobileSportClick
+      }, "NHL")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        to: "/pga/".concat(subRoute),
+        className: "mobile-nav__item-link",
+        activeClassName: "active-mobile",
+        onClick: this.props.mobileSportClick
+      }, "PGA")))) : null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, phoneMenu, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -44993,8 +44997,12 @@ var CriticProfile = function CriticProfile(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-profile"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "critic-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.pic
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-name"
-  }, props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-info"
   }, props.job), props.players.slice(0, 10).map(function (player, index) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -45038,7 +45046,7 @@ var ListHeader = function ListHeader(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "list-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "main"
+    className: "main-list-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "main-items"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -46067,9 +46075,9 @@ __webpack_require__.r(__webpack_exports__);
 var ProfilePage = function ProfilePage(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user"
-  }, "Welcome ".concat(props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Create your Goat Lists"), console.log(props.user), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Welcome ".concat(props.user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Create your Goat Lists")), console.log(props.user), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lists-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_profilePage_SportList__WEBPACK_IMPORTED_MODULE_3__["default"], {
     user: props.user,
@@ -46086,7 +46094,7 @@ var ProfilePage = function ProfilePage(props) {
     userPlayers: props.user.pga,
     criticPlayers: props.allTime.pga,
     title: "PGA"
-  }))));
+  })));
 };
 
 var mapStateToProps = function mapStateToProps(state) {

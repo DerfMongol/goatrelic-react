@@ -9,6 +9,12 @@ import createStore from './helpers/createStore'
 
 const app = express()
 
+if (process.env.NODE_ENV == 'production') {
+    setInterval(() => {
+        axios.get("http://salty-thicket-36195.herokuapp.com");
+    }, 300000); // every 5 minutes (300000)
+}
+
 console.log(process.env.API_URL)
 console.log(process.env.SSR_URL)
 
