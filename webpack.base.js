@@ -24,7 +24,13 @@ module.exports = {
             use: [
                 MiniCssExtractPlugin.loader,
                 { loader: 'css-loader', options: { url: false, sourceMap: true } },
-                { loader: 'sass-loader', options: { sourceMap: true } }
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                      plugins: () => [require('autoprefixer')]
+                    }
+                  },
+                { loader: 'sass-loader', options: { sourceMap: true } },
             ],
         }, {
             test: /\.(png|jp(e*)g|svg)$/,
