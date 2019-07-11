@@ -11,7 +11,7 @@ export default [
         ...Start,
         routes: [
             {
-                ...Home,
+                ...CriticPage,
                 exact: true,
                 path: '/'
             },

@@ -46,6 +46,7 @@ class CriticPage extends Component {
             path = 'fans'
         } else {
             path = 'critics'
+            this.props.history.push("nba/critics");
         }
         this.setState({
             path

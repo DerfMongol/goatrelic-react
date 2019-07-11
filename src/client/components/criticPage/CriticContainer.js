@@ -11,6 +11,8 @@ const CriticContainer = (props) => {
         profiles = props.profiles.nhl
     } else if (props.match.path.includes('/pga')) {
         profiles = props.profiles.pga
+    } else {
+        profiles = props.profiles.nba
     }
 
     return (

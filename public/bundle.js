@@ -44176,7 +44176,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ([_objectSpread({}, _Start__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  routes: [_objectSpread({}, _pages_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  routes: [_objectSpread({}, _pages_CriticPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
     exact: true,
     path: '/'
   }), _objectSpread({}, _pages_CriticPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -44954,6 +44954,8 @@ var CriticContainer = function CriticContainer(props) {
     profiles = props.profiles.nhl;
   } else if (props.match.path.includes('/pga')) {
     profiles = props.profiles.pga;
+  } else {
+    profiles = props.profiles.nba;
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -45949,6 +45951,7 @@ function (_Component) {
         path = 'fans';
       } else {
         path = 'critics';
+        this.props.history.push("nba/critics");
       }
 
       this.setState({
