@@ -26,6 +26,7 @@
 }
 
 .toggle-button {
+    order: 1;
     margin-left: 1.25rem;
     width: 3.5rem;
     background: transparent;
@@ -146,7 +147,6 @@
     text-align: right;
     width: 70%;
     vertical-align: middle;
-    order: 3;
 }
 
 .main-item a {
