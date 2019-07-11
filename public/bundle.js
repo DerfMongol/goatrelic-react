@@ -45749,7 +45749,6 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottom-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        autoFocus: true,
         type: "text",
         placeholder: "Type ".concat(this.props.sportName, " player"),
         onKeyDown: function onKeyDown(e) {
