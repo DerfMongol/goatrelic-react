@@ -561,11 +561,12 @@ li.dropdown {
   width: 35px;
   height: 35px;
   border: 2px solid white;
-  padding: 0; }
+  padding: 0;
+  margin-right: 1rem; }
 
 .critic-name {
   order: 2;
-  margin: 0 0 0.3rem 1rem;
+  margin: 0 0 0.3rem 0;
   color: gold;
   text-decoration: underline; }
 

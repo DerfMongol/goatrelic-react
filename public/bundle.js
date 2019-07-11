@@ -44991,18 +44991,22 @@ var CriticContainer = function CriticContainer(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+
 
 
 var CriticProfile = function CriticProfile(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-profile"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.location.pathname.includes('fans') ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: props.pic
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-name"
-  }, props.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, props.name)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "critic-name"
+  }, props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "critic-info"
   }, props.job), props.players.slice(0, 10).map(function (player, index) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -45021,7 +45025,7 @@ var CriticProfile = function CriticProfile(props) {
   }, "Source")));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (CriticProfile);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(CriticProfile));
 
 /***/ }),
 

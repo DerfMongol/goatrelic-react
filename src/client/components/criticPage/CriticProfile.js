@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
+
 
 const CriticProfile = (props) => (
     <div className='critic-profile'>
-        <div className="critic-header">
         {
-            this.props.location.pathname.includes('fans') ?
-                <img src={props.pic} /> : null
-            
+            props.location.pathname.includes('fans') ?
+                <div className="critic-header">
+                    <img src={props.pic} />
+                    <div className='critic-name'>{props.name}</div>
+                </div> :
+                <div className='critic-name'>{props.name}</div>
         }
-        
-           
-            <div className='critic-name'>{props.name}</div>
-        </div>
         <div className='critic-info'>{props.job}</div>
         {
             props.players.slice(0, 10).map((player, index) =>
@@ -37,6 +37,5 @@ const CriticProfile = (props) => (
     </div>
 )
 
-export default CriticProfile
-
+export default withRouter(CriticProfile)
 
