@@ -21,7 +21,7 @@ const PlayerListCat = (props) => (
                        
                 }
                 if (props.title === "Player") {
-                    return <div key={index} className="player-list">{player.player}</div>
+                    return <div key={index} onMouseOver={() => props.onPlayerHover(player.player)} className="player-list">{player.player}</div>
                 }
                 if (props.title === "Lists") {
                     return <div key={index} className="player-list">{player.lists}</div>

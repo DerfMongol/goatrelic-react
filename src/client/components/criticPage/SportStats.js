@@ -6,30 +6,43 @@ import TrophyCase from './TrophyCase'
 import PlayerList from './PlayerList'
 import CriticContainer from './CriticContainer'
 
-const SportStats = (props) => {
-       
-    return (
-        <div>
-            <TrophyCase />
-            <PlayerList route={props.route} allTime={props.allTime}/>
-            <CriticContainer profiles={props.profiles} route={props.route} />
-        </div>
-    )
+class SportStats extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            player: null
+        }
+    this.onPlayerHover = this.onPlayerHover.bind(this)
+    }
+    onPlayerHover(player) {
+        this.setState({
+            player
+        })
+    }
+    render() {
+        return (
+            <div>
+                <TrophyCase player={this.state.player}/>
+                <PlayerList onPlayerHover={this.onPlayerHover} route={this.props.route} allTime={this.props.allTime} />
+                <CriticContainer profiles={this.props.profiles} route={this.props.route} />
+            </div>
+        )
+    }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, ownProps) => {
 
-    if (props.route === 'critics') {
+    if (ownProps.route === 'critics') {
         return {
             profiles: state.critics,
             allTime: state.allTime
         }
-    } else if (props.route === 'players') {
+    } else if (ownProps.route === 'players') {
         return {
             profiles: state.players,
             allTime: state.playersAllTime
         }
-    } else if (props.route === 'fans') {
+    } else if (ownProps.route === 'fans') {
         return {
             profiles: state.fans,
             allTime: state.fansAllTime

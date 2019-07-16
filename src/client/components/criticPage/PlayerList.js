@@ -26,7 +26,7 @@ const PlayerList = (props) => {
             <div className='all-time'>
                 <div className='cats-banner'></div>
                 <PlayerListCat title="Rank" allTime={allTime} />
-                <PlayerListCat title="Player" allTime={allTime} />
+                <PlayerListCat onPlayerHover={props.onPlayerHover} title="Player" allTime={allTime} />
                 <PlayerListCat title="Lists" allTime={allTime} />
                 <PlayerListCat title="Avg." allTime={allTime} />
             </div>

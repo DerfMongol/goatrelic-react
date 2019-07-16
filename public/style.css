@@ -424,15 +424,17 @@ body {
   align-items: center; }
 
 .goat {
+  background-image: url("./images/goat.png");
   margin-right: 1.2rem;
   width: 2.7rem;
   height: 2.7rem;
   background-size: contain; }
 
 .goat-mobile {
-  margin-bottom: 10px;
-  padding: 10px 20%;
-  border-bottom: 2px solid gold;
+  background-image: url("./images/goat.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  padding: 10px;
   width: 2.7rem;
   height: 2.7rem;
   background-size: contain; }
@@ -671,6 +673,12 @@ li.dropdown {
   border: .0625rem solid black;
   background: rgba(147, 152, 153, 0.541);
   margin: 5% auto 0 auto; }
+
+.player-headshot {
+  background-repeat: no-repeat;
+  width: 5rem;
+  height: 5rem;
+  background-size: contain; }
 
 .cats {
   display: inline-block;

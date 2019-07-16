@@ -42,7 +42,7 @@ class Header extends Component {
             <nav className="mobile-nav">
                 <ul className="mobile-nav__items">
                     <Link to="/">
-                        <img className="goat-mobile" src={require("../../../public/images/Black_Goat.png")} />
+                        <div className="goat-mobile"></div>
                     </Link>
                     <li>
                         <NavLink to={`/nba/${subRoute}`} className="mobile-nav__item-link" activeClassName="active-mobile" onClick={this.props.mobileSportClick}>NBA</NavLink>
@@ -67,7 +67,7 @@ class Header extends Component {
                         <span className='toggle-button__bar'></span>
                     </button>
                     <Link to="/" className='logo'>
-                        <img className="goat" src={require("../../../public/images/Black_Goat.png")} />
+                        <div className="goat"></div>
                         <div className='brand'>Relic</div>
                     </Link>
                     <nav className='main'>
